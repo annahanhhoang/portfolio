@@ -1,0 +1,14 @@
+.about-page {
+    .about-content,
+    .side-image {
+        margin-top: 100px;
+    }
+
+    .side-image--img {
+        background: url(../assets/avatar.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        height: 775px;
+    }
+}
