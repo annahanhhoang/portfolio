@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Landing from '@/views/Landing.vue'
 import About from '@/views/About.vue'
+import Experience from '@/views/Experience.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -18,10 +19,17 @@ const router = new Router({
             component: About,
             meta: { title: 'About Me' },
         },
+
+        {
+            path: '/experience',
+            name: 'Experience',
+            component: Experience,
+            meta: { title: 'My Experience' },
+        },
     ]
 })
 
-router.afterEach((to, from) => {
+router.afterEach((to) => {
     document.title = to.meta.title;
 })
 
