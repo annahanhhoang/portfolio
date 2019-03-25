@@ -4,15 +4,26 @@
     padding: 0;
 }
 
+h1, h2, h3 {
+    font-weight: $header-weight;
+    color: $header-color;
+}
+
 h1 {
     font-size: $h1-size;
-    font-weight: $h1-weight;
-    margin-bottom: $h1-margin;
-    color: $h1-color;
     line-height: $h1-line-height;
+    margin-bottom: $h1-margin;
 }
+
+h2 {
+    font-size: $h2-size;
+    line-height: $h2-line-height;
+    margin-bottom: $h2-margin;
+}
+
 .label {
     text-transform: uppercase;
     color: $label-color;
     font-weight: $label-weight;
+    font-size: 16px;
 }

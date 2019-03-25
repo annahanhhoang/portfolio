@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Landing from '@/views/Landing.vue'
 import About from '@/views/About.vue'
 import Experience from '@/views/Experience.vue'
+import Skills from '@/views/Skills.vue'
+
 Vue.use(Router)
 
 const router = new Router({
@@ -13,6 +15,7 @@ const router = new Router({
             component: Landing,
             meta: { title: 'Welcome to Anna\'s page'},
         },
+
         {
             path: '/about',
             name: 'AboutMe',
@@ -24,6 +27,13 @@ const router = new Router({
             path: '/experience',
             name: 'Experience',
             component: Experience,
+            meta: { title: 'My Experience' },
+        },
+
+        {
+            path: '/skills',
+            name: 'Skills',
+            component: Skills,
             meta: { title: 'My Experience' },
         },
     ]

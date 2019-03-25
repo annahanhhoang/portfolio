@@ -2,17 +2,23 @@
 *                         COLOR                                 *
 *****************************************************************/
 $primary-color: #1976d2;
-$h1-color: $primary-color;
+$header-color: $primary-color;
 
 /****************************************************************
 *                         FONT                                 *
 *****************************************************************/
 
-/*h1*/
+/*header*/
+
+$header-weight: 700px;
+
 $h1-size: 45px;
 $h1-line-height: 48px;
-$h1-weight: 700px;
 $h1-margin: 25px;
+
+$h2-size: 24px;
+$h2-line-height: 32px;
+$h2-margin: 15px;
 
 /*label*/
 $label-color: $primary-color;
