@@ -4,7 +4,11 @@
             <v-layout row wrap>
                 <v-flex xs8>
                     <h1>Who I am.</h1>
-                    <div>I am a full-stack developer that specializes in Vue and Veutify development. </div>
+                    <p>
+                        I am an Asian girl named Anna (hence the logo. Bonus point for you if you can recognize Vietnam map!). I'm a full time full-stack developer and part-time traveller 
+                        (or vise versa, depend on the season or my mood).<br/>
+                        Professionally, I specialize in Vue.js (Veutify), Node.js (Express) and Java development. When I'm not sitting in front of the laptop, I specialize in hopping around.
+                    </p>
                 </v-flex>
                 <v-flex xs4>
                     <v-layout row wrap>
@@ -16,7 +20,11 @@
                         <v-flex xs4 class="label">
                             EMAIL
                         </v-flex>
-                        <v-flex xs8>anna.hanh.hoang@gmail.com</v-flex>
+                        <v-flex xs8>
+                            <a href="mailto:anna.hanh.hoang@gmail.com" target="_top">
+                                anna.hanh.hoang@gmail.com
+                            </a>
+                        </v-flex>
 
                         <v-flex xs4 class="label">
                             PHONE
@@ -70,10 +78,12 @@
             </v-layout>
         </v-flex>
         <v-flex xs4 class="side-image">
-            <div class="text-xs-right">
-                <div>FULL-STACK DEVELOPER</div>
-                <div>Anna Hoang</div>
+            <div class="talk-bubble tri-right round btm-left-in">
+                <div class="talktext">
+                    <p>Welcome to my online page! <br/> I hope you enjoy what you see</p>
+                </div>
             </div>
+
             <div class="side-image--img">
             </div>
         </v-flex>
