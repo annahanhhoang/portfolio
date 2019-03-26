@@ -9,6 +9,12 @@ h1, h2, h3 {
     color: $header-color;
 }
 
+a {
+    .social-link & {
+        text-decoration: none;
+    }
+}
+
 h1 {
     font-size: $h1-size;
     line-height: $h1-line-height;

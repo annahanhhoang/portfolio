@@ -4,6 +4,7 @@ import Landing from '@/views/Landing.vue'
 import About from '@/views/About.vue'
 import Experience from '@/views/Experience.vue'
 import Skills from '@/views/Skills.vue'
+import Contact from '@/views/Contact.vue'
 
 Vue.use(Router)
 
@@ -35,6 +36,13 @@ const router = new Router({
             name: 'Skills',
             component: Skills,
             meta: { title: 'My Experience' },
+        },
+
+        {
+            path: '/contact',
+            name: 'Contact',
+            component: Contact,
+            meta: { title: 'Contact Me' },
         },
     ]
 })
