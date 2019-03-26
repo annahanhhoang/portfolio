@@ -1,9 +1,6 @@
 <template>
     <v-layout row class="contact-page">
-        <v-flex xs2 class="side-menu">
-            <side-menu></side-menu>
-        </v-flex>
-        <v-flex xs4 class="contact-content">
+        <v-flex xs6 class="contact-content">
             <h1>Let&apos;s talk</h1>
 
             <div>
@@ -73,12 +70,10 @@
 </template>
 
 <script>
-    import SideMenu from '@/components/SideMenu'
     import SocialLink from '@/components/SocialLink.vue';
 
     export default {
         components: {
-            SideMenu,
             SocialLink
         },
         data() {

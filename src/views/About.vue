@@ -1,9 +1,6 @@
 <template>
     <v-layout row class="about-page">
-        <v-flex xs2 class="side-menu">
-            <side-menu></side-menu>
-        </v-flex>
-        <v-flex xs7 class="about-content">
+        <v-flex xs8 class="about-content">
             <v-layout row wrap>
                 <v-flex xs8>
                     <h1>Who I am.</h1>
@@ -72,7 +69,7 @@
                 </v-flex>
             </v-layout>
         </v-flex>
-        <v-flex xs3 class="side-image">
+        <v-flex xs4 class="side-image">
             <div class="text-xs-right">
                 <div>FULL-STACK DEVELOPER</div>
                 <div>Anna Hoang</div>
@@ -82,13 +79,3 @@
         </v-flex>
     </v-layout>
 </template>
-
-<script>
-    import SideMenu from '@/components/SideMenu'
-
-    export default {
-        components: {
-            SideMenu
-        }
-    }
-</script>

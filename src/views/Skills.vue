@@ -1,9 +1,6 @@
 <template>
     <v-layout row class="skill-page">
-        <v-flex xs2 class="side-menu">
-            <side-menu></side-menu>
-        </v-flex>
-        <v-flex xs10>
+        <v-flex xs12>
             <h1>What I know </h1>
             <v-layout row>
                 <v-flex xs5 class="edu-content">
@@ -32,12 +29,7 @@
 </template>
 
 <script>
-    import SideMenu from '@/components/SideMenu'
-
     export default {
-        components: {
-            SideMenu
-        },
         data() {
             return {
                 edu: [

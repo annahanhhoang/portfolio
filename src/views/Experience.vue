@@ -1,9 +1,6 @@
 <template>
     <v-layout row class="experience-page">
-        <v-flex xs2 class="side-menu">
-            <side-menu></side-menu>
-        </v-flex>
-        <v-flex xs7 class="experience-content">
+        <v-flex xs12 class="experience-content">
             <h1>Where I have been </h1>
             <v-timeline>
                 <v-timeline-item color="primary">
@@ -110,13 +107,3 @@
         </v-flex>
     </v-layout>
 </template>
-
-<script>
-    import SideMenu from '@/components/SideMenu'
-
-    export default {
-        components: {
-            SideMenu
-        }
-    }
-</script>
