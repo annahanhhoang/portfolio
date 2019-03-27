@@ -8,9 +8,7 @@
         <v-navigation-drawer v-model="drawer"
                              app>
             <v-layout column align-center justify-center fill-height>
-                <v-avatar size="150" class="mt-4 mb-2">
-                    <img src="@/assets/avatar.jpg">
-                </v-avatar>
+                <img src="@/assets/logo.png" class="logo mt-4">
 
                 <div class="display-1 mb-2">Anna Hoang</div>
 
@@ -63,12 +61,10 @@
                 menu: [
                     { title: 'Home', icon: 'mdi-home', to: '/' },
                     { title: 'About Me', icon: 'mdi-account', to: '/about' },
-                    { title: 'Experience', icon: 'mdi-school', to: '/experience' },
+                    { title: 'Experience', icon: 'mdi-briefcase', to: '/experience' },
                     { title: 'Skills and Educations', icon: 'mdi-school', to: '/skills' },
-                    { title: 'My Projects', icon: 'mdi-school', to: '/skills' },
-                    { title: 'Recommendation', icon: 'mdi-school', to: '/skills' },
+                    { title: 'My Projects', icon: 'mdi-lightbulb-on', to: '/projects' },
                     { title: 'Contact', icon: 'mdi-phone', to: '/contact' },
-                    { title: 'Fun facts about me', icon: 'mdi-school', to: '/contact' },
                 ],
             }
         },
