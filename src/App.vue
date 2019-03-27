@@ -41,9 +41,7 @@
         **
         -->
         <v-content>
-            <v-container fluid grid-list-xl>
-                <router-view />
-            </v-container>
+            <router-view />
         </v-content>
     </v-app>
 </template>
@@ -57,17 +55,21 @@
         },
         data() {
             return {
-                drawer: true,
                 menu: [
                     { title: 'Home', icon: 'mdi-home', to: '/' },
                     { title: 'About Me', icon: 'mdi-account', to: '/about' },
                     { title: 'Experience', icon: 'mdi-briefcase', to: '/experience' },
                     { title: 'Skills and Educations', icon: 'mdi-school', to: '/skills' },
                     { title: 'My Projects', icon: 'mdi-lightbulb-on', to: '/projects' },
+                    { title: 'Blog', icon: 'mdi-blogger', to: '/blog' },
                     { title: 'Contact', icon: 'mdi-phone', to: '/contact' },
                 ],
             }
         },
-        props: []
+        computed: {
+            drawer() {
+                return this.$route.name !== 'Landing'
+            }
+        }
     }
 </script>
