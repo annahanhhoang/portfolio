@@ -22,7 +22,7 @@ const router = new Router({
 
         {
             path: '/about',
-            name: 'AboutMe',
+            name: 'About',
             component: About,
             meta: { title: 'About Me' },
         },
