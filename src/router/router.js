@@ -1,12 +1,15 @@
 import Vue from 'vue'
+
 import Router from 'vue-router'
+Vue.use(Router)
+
 import Landing from '@/views/Landing.vue'
 import About from '@/views/About.vue'
 import Experience from '@/views/Experience.vue'
 import Skills from '@/views/Skills.vue'
+import Projects from '@/views/Projects.vue'
+import Blog from '@/views/Blog.vue'
 import Contact from '@/views/Contact.vue'
-
-Vue.use(Router)
 
 const router = new Router({
     routes: [
@@ -36,6 +39,20 @@ const router = new Router({
             name: 'Skills',
             component: Skills,
             meta: { title: 'My Experience' },
+        },
+
+        {
+            path: '/projects',
+            name: 'Projects',
+            component: Projects,
+            meta: { title: 'My Projects' },
+        },
+
+        {
+            path: '/blog',
+            name: 'Blog',
+            component: Blog,
+            meta: { title: 'My writing' },
         },
 
         {
