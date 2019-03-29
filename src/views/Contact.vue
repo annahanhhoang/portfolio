@@ -17,27 +17,17 @@
                         SEND ME A MESSAGE
                     </h2>
 
-                    <v-layout row wrap>
-                        <v-flex xs12>
-                            <v-text-field label="Name" name="txtName" id="txtName">
+                    <v-form ref="form" v-model="valid" lazy-validation>
+                            <v-text-field label="Name*" name="txtName" id="txtName" v-model="name" :rules="nameRules" required>
                             </v-text-field>
-                        </v-flex>
 
-                        <v-flex xs12>
-                            <v-text-field label="Email" name="txtEmail" id="txtEmail">
+                            <v-text-field label="Email*" name="txtEmail" id="txtEmail" v-model="email" :rules="emailRules" required>
                             </v-text-field>
-                        </v-flex>
 
-                        <v-flex xs12>
-                            <v-textarea label="Messaage"
-                                        name="txtMessage"
-                                        id="txtMessage"></v-textarea>
-                        </v-flex>
-
-                        <v-flex xs12 class="text-xs-right">
-                            <v-btn color="primary">Contact me</v-btn>
-                        </v-flex>
-                    </v-layout>
+                            <v-textarea label="Messaage*" name="txtMessage" id="txtMessage"v-model="message" :rules="messageRules" required></v-textarea>
+                        
+                            <v-btn color="primary" @click="validate">Contact me</v-btn>
+                    </v-form>
                 </div>
             </v-flex>
 
@@ -78,6 +68,7 @@
         components: {
             SocialLink
         },
+
         data() {
             return {
                 drawer: true,
@@ -86,9 +77,35 @@
                     { id: 'Email', icon: 'mdi-email', value: 'anna.hanh.hoang@gmail.com' },
                     { id: 'Phone', icon: 'mdi-phone', value: '469-831-0504' },
                 ],
-                right: null
-            }
-        }
 
+                name: '',
+                email: '',
+                message: '',
+
+                valid: true,
+                nameRules: [
+                    v => !!v || 'Name is required',
+                    v => (v && v.length >= 2) || 'Name must be at least 3 characters',
+                    v => /([a-zA-Z]{2,}\d*\s*)+/.test(v) || 'Name must contain only alphanumeric or space',
+                ],
+                emailRules: [
+                    v => !!v || 'E-mail is required',
+                    v => /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(v) || 'E-mail must be valid'
+                ],
+                messageRules: [
+                    v => !!v || 'Message is required',
+                    v => !/[<>'"`&#\$~]/.test(v) || 'Message must not contain special character'
+                ]
+            }
+        },
+
+        methods: {
+            validate() {
+                if (!this.$refs.form.validate()) {
+                    return false;
+                } 
+                this.submit()
+            },
+        }
     }
 </script>
