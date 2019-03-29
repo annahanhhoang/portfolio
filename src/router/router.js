@@ -9,6 +9,7 @@ import Experience from '@/views/Experience.vue'
 import Skills from '@/views/Skills.vue'
 import Projects from '@/views/Projects.vue'
 import Blog from '@/views/Blog.vue'
+import BlogPost from '@/views/BlogPost.vue'
 import Contact from '@/views/Contact.vue'
 
 const router = new Router({
@@ -53,6 +54,12 @@ const router = new Router({
             name: 'Blog',
             component: Blog,
             meta: { title: 'My writing' },
+        },
+        
+        {
+            path: '/blog/:slug',
+            name: 'BlogPost',
+            component: BlogPost
         },
 
         {
