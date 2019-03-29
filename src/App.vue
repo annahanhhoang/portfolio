@@ -16,8 +16,7 @@
 
                 <v-list>
                     <v-list-tile v-for="item in menu"
-                                 :key="item.title"
-                                 @click="">
+                                 :key="item.title">
                         <v-list-tile-action>
                             <v-icon>{{ item.icon }}</v-icon>
                         </v-list-tile-action>
@@ -55,6 +54,7 @@
         },
         data() {
             return {
+                drawer: null,
                 menu: [
                     { title: 'Home', icon: 'mdi-home', to: '/' },
                     { title: 'About Me', icon: 'mdi-account', to: '/about' },
@@ -66,9 +66,14 @@
                 ],
             }
         },
-        computed: {
-            drawer() {
-                return this.$route.name !== 'Landing'
+
+        beforeMount() {
+            this.drawer = this.$route.name !== 'Landing'
+        },
+
+        watch: {
+            $route() {
+                this.drawer = this.$route.name !== 'Landing'
             }
         }
     }
