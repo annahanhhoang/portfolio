@@ -18,15 +18,15 @@
                     </h2>
 
                     <v-form ref="form" v-model="valid" lazy-validation>
-                            <v-text-field label="Name*" name="txtName" id="txtName" v-model="name" :rules="nameRules" required>
-                            </v-text-field>
+                        <v-text-field label="Name*" name="txtName" id="txtName" v-model="name" :rules="nameRules" required>
+                        </v-text-field>
 
-                            <v-text-field label="Email*" name="txtEmail" id="txtEmail" v-model="email" :rules="emailRules" required>
-                            </v-text-field>
+                        <v-text-field label="Email*" name="txtEmail" id="txtEmail" v-model="email" :rules="emailRules" required>
+                        </v-text-field>
 
-                            <v-textarea label="Messaage*" name="txtMessage" id="txtMessage"v-model="message" :rules="messageRules" required></v-textarea>
-                        
-                            <v-btn color="primary" @click="validate">Contact me</v-btn>
+                        <v-textarea label="Messaage*" name="txtMessage" id="txtMessage" v-model="message" :rules="messageRules" required></v-textarea>
+
+                        <v-btn color="primary" @click="sendEmail" class="ml-auto">Contact me</v-btn>
                     </v-form>
                 </div>
             </v-flex>
@@ -58,20 +58,25 @@
 
             <v-flex xs4></v-flex>
         </v-layout>
+
+        <modal v-if="showModal" :messageHeader="messageHeader" :messageBody="messageBody" @close="showModal = false">
+        </modal>
     </v-container>
 </template>
 
 <script>
-    import SocialLink from '@/components/SocialLink.vue';
+    import SocialLink from '@/components/SocialLink.vue'
+    import modal from '@/components/Modal.vue'
+    import APIService from '@/service/APIService'
 
     export default {
         components: {
+            modal,
             SocialLink
         },
 
         data() {
             return {
-                drawer: true,
                 info: [
                     { id: 'Address', icon: 'mdi-map-marker', value: 'Dallas, Texas' },
                     { id: 'Email', icon: 'mdi-email', value: 'anna.hanh.hoang@gmail.com' },
@@ -95,17 +100,47 @@
                 messageRules: [
                     v => !!v || 'Message is required',
                     v => !/[<>'"`&#\$~]/.test(v) || 'Message must not contain special character'
-                ]
+                ],
+
+                showModal: false, 
+                messageHeader: '',
+                messageBody: ''
             }
         },
 
         methods: {
             validate() {
                 if (!this.$refs.form.validate()) {
-                    return false;
+                    return false
                 } 
-                this.submit()
+                return true
             },
+
+            sendEmail() {
+                if (this.validate()) {
+                    const vm = this
+                    const emailOption = {
+                        'name': this.name,
+                        'email': this.email,
+                        'message': this.message
+                    }
+
+                    APIService.sendEmail(emailOption)
+                        .then(function () {
+                            vm.displayModal('Message sent', 'Your message was sent successfully. We will get back to you within 48 hours.')
+                            this.$refs.form.reset()
+                        })
+                        .catch(function (error) {
+                            vm.displayModal('Error', 'Something went wrong. Please try again later.')
+                        })
+                }
+            },
+
+            displayModal(messageHeader, messageBody) {
+                this.messageHeader = messageHeader
+                this.messageBody = messageBody
+                this.showModal = true
+            }
         }
     }
 </script>
