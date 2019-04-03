@@ -1,5 +1,5 @@
 import Api from './API'
-import endPoints from './apiConfig'
+import endPoints from '../../config/apiConfig'
 
 export default {
     sendEmail(emailOption) {
