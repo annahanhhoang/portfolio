@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --open",
+    "serve": "vue-cli-service serve --host 127.0.0.1 --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -12,6 +12,7 @@
     "buttercms": "^1.1.4",
     "vue": "^2.6.9",
     "vue-axios": "^2.1.4",
+    "vue-recaptcha": "^1.1.1",
     "vue-router": "^3.0.2",
     "vuetify": "^1.5.9"
   },

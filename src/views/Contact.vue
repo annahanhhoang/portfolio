@@ -26,6 +26,9 @@
 
                         <v-textarea label="Messaage*" name="txtMessage" id="txtMessage" v-model="message" :rules="messageRules" required></v-textarea>
 
+                        <vue-recaptcha ref="recaptcha" :sitekey="sitekey" @verify="verifyCaptcha" @expired="$refs.recaptcha.reset()">
+                        </vue-recaptcha>
+
                         <v-btn color="primary" @click="sendEmail" class="ml-auto">Contact me</v-btn>
                     </v-form>
                 </div>
@@ -59,7 +62,7 @@
             <v-flex xs4></v-flex>
         </v-layout>
 
-        <modal v-if="showModal" :messageHeader="messageHeader" :messageBody="messageBody" @close="showModal = false">
+        <modal v-if="showModal" :messageHeader="messageHeader" :messageBody="messageBody" @close="showModal = false" class="recaptcha-error">
         </modal>
     </v-container>
 </template>
@@ -69,10 +72,14 @@
     import modal from '@/components/Modal.vue'
     import APIService from '@/service/APIService'
 
+    import VueRecaptcha from 'vue-recaptcha'
+    import captchaConfig from '../../config/recaptchaConfig'
+
     export default {
         components: {
             modal,
-            SocialLink
+            SocialLink,
+            VueRecaptcha
         },
 
         data() {
@@ -102,7 +109,10 @@
                     v => !/[<>'"`&#\$~]/.test(v) || 'Message must not contain special character'
                 ],
 
-                showModal: false, 
+                sitekey: captchaConfig.sitekey,
+                verifiedCaptcha: false,
+
+                showModal: false,
                 messageHeader: '',
                 messageBody: ''
             }
@@ -112,26 +122,50 @@
             validate() {
                 if (!this.$refs.form.validate()) {
                     return false
-                } 
+                } else if (window.grecaptcha.getResponse().length === 0) {
+                    this.displayModal('Error', 'Please make sure you filled out the form and passed captcha verification.')
+                    return false
+                }
                 return true
             },
 
+            verifyCaptcha(captchaResponse) {
+                const vm = this
+
+                if (vm.validate()) {
+                    let result = null
+
+                    APIService.verifyCaptcha(captchaResponse)
+                        .then(function (apiResponse) {
+                            result = apiResponse.data
+                            vm.verifiedCaptcha = result.success
+                        })
+                        .catch(function () {
+                            vm.displayModal('Error', 'Something went wrong with captcha verification. Please refresh the page and try again later.')
+                            vm.verifiedCaptcha = false
+                        })
+                }
+            },
+
             sendEmail() {
-                if (this.validate()) {
-                    const vm = this
+                const vm = this
+
+                if (vm.validate() && vm.verifiedCaptcha) {
                     const emailOption = {
-                        'name': this.name,
-                        'email': this.email,
-                        'message': this.message
+                        'name': vm.name,
+                        'email': vm.email,
+                        'message': vm.message
                     }
 
                     APIService.sendEmail(emailOption)
                         .then(function () {
                             vm.displayModal('Message sent', 'Your message was sent successfully. We will get back to you within 48 hours.')
-                            this.$refs.form.reset()
+                            vm.$refs.form.reset()
+                            vm.$refs.recaptcha.reset()
                         })
-                        .catch(function (error) {
+                        .catch(function () {
                             vm.displayModal('Error', 'Something went wrong. Please try again later.')
+                            vm.$refs.recaptcha.reset()
                         })
                 }
             },
