@@ -10,3 +10,9 @@ new Vue({
     router,
     render: h => h(App),
 }).$mount('#app')
+
+if (module.hot) {
+    module.hot.addStatusHandler(status => {
+        if (status === 'prepare') console.clear()
+    })
+}
