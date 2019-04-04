@@ -17,6 +17,8 @@
                         SEND ME A MESSAGE
                     </h2>
 
+                    <v-alert v-model="showAlert" :type="alertType" :dismissible="dismissible" class="mb-3">{{alertMessage}}</v-alert>
+
                     <v-form ref="form" v-model="valid" lazy-validation>
                         <v-text-field label="Name*" name="txtName" id="txtName" v-model="name" :rules="nameRules" required>
                         </v-text-field>
@@ -26,8 +28,19 @@
 
                         <v-textarea label="Messaage*" name="txtMessage" id="txtMessage" v-model="message" :rules="messageRules" required></v-textarea>
 
-                        <vue-recaptcha ref="recaptcha" :sitekey="sitekey" @verify="verifyCaptcha" @expired="$refs.recaptcha.reset()">
-                        </vue-recaptcha>
+                        <div :class="['v-input', 'v-input--selection-controls', 'v-input--checkbox', 'captcha', captchaErrorClass]">
+                            <div class="v-input__control">
+                                <div class="v-input__slot">
+                                    <vue-recaptcha ref="recaptcha" :sitekey="sitekey" @verify="verifyCaptcha" @expired="$refs.recaptcha.reset()">
+                                    </vue-recaptcha>
+                                </div>
+                                <div class="v-messages">
+                                    <div class="v-messages__wrapper">
+                                        <div class="v-messages__message">{{captchaErrorMessage}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <v-btn color="primary" @click="sendEmail" class="ml-auto">Contact me</v-btn>
                     </v-form>
@@ -61,9 +74,6 @@
 
             <v-flex xs4></v-flex>
         </v-layout>
-
-        <modal v-if="showModal" :messageHeader="messageHeader" :messageBody="messageBody" @close="showModal = false" class="recaptcha-error">
-        </modal>
     </v-container>
 </template>
 
@@ -111,28 +121,41 @@
 
                 sitekey: captchaConfig.sitekey,
                 verifiedCaptcha: false,
+                captchaErrorMessage: "",
+                captchaErrorClass: "",
 
-                showModal: false,
-                messageHeader: '',
-                messageBody: ''
+                showAlert: false,
+                alertType: 'info',
+                alertMessage: '',
+                dismissible: false
             }
         },
 
         methods: {
             validate() {
+                this.resetAlert()
+
                 if (!this.$refs.form.validate()) {
                     return false
                 } else if (window.grecaptcha.getResponse().length === 0) {
-                    this.displayModal('Error', 'Please make sure you filled out the form and passed captcha verification.')
+                    this.captchaErrorMessage = 'Please verify that you are not a robot.'
+                    this.captchaErrorClass = 'v-input--has-state error--text'
                     return false
                 }
                 return true
+            },
+
+            resetCaptchaError() {
+                this.captchaErrorMessage = ''
+                this.captchaErrorClass = ''
             },
 
             verifyCaptcha(captchaResponse) {
                 const vm = this
 
                 if (vm.validate()) {
+                    this.resetCaptchaError()
+
                     let result = null
 
                     APIService.verifyCaptcha(captchaResponse)
@@ -141,7 +164,7 @@
                             vm.verifiedCaptcha = result.success
                         })
                         .catch(function () {
-                            vm.displayModal('Error', 'Something went wrong with captcha verification. Please refresh the page and try again later.')
+                            vm.displayAlert('error', 'Something went wrong with captcha verification. Please refresh the page and try again.')
                             vm.verifiedCaptcha = false
                         })
                 }
@@ -159,21 +182,27 @@
 
                     APIService.sendEmail(emailOption)
                         .then(function () {
-                            vm.displayModal('Message sent', 'Your message was sent successfully. We will get back to you within 48 hours.')
+                            vm.displayAlert('info', 'Thanks for contacting me. Your message was sent successfully. I will get back to you within 48 hours.', true)
                             vm.$refs.form.reset()
                             vm.$refs.recaptcha.reset()
                         })
                         .catch(function () {
-                            vm.displayModal('Error', 'Something went wrong. Please try again later.')
+                            vm.displayAlert('error', 'Error sending email. Please refresh the page and try again later.')
                             vm.$refs.recaptcha.reset()
                         })
                 }
             },
 
-            displayModal(messageHeader, messageBody) {
-                this.messageHeader = messageHeader
-                this.messageBody = messageBody
-                this.showModal = true
+            displayAlert(alertType, alertMessage, dismissible = false) {
+                this.alertMessage = alertMessage
+                this.dismissible = dismissible
+                this.alertType = alertType
+                this.showAlert = true
+            },
+
+            resetAlert() {
+                this.alertMessage = ''
+                this.showAlert = false
             }
         }
     }
