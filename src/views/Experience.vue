@@ -1,107 +1,29 @@
 <template>
     <v-container fluid fill-height grid-list-xl class="experience-page">
         <v-layout row>
-            <v-flex xs12 class="experience-content">
+            <v-flex xs12>
                 <h1>Where I have been </h1>
-                <v-timeline>
-                    <v-timeline-item color="primary">
+                <v-timeline class="timeline">
+                    <v-timeline-item v-for="item in experiences" :key="item.id" class="timeline-item">
                         <template v-slot:opposite>
-                            <span>09/201 - now</span>
+                            <span class="timeline-duration">{{item.duration}}</span>
                         </template>
-                        <v-card class="elevation-2">
-                            <v-card-title class="headline">
-                                Fujitsu Network Communication
-                                <small>Full Stack Developer</small>
-                            </v-card-title>
-                            <v-card-text>
-                                <ul>
-                                    <li>Rcognized by senior manager for encoraging innovation</li>
-                                    <li>
-                                        Reduced production issue&apos;s troubleshooting time by 90% by creating database auto backup process.
-                                    </li>
-                                    <li>
-                                        Significantly increase usability by redesigning different trackers and monitors on the dashboard
-                                    </li>
-                                </ul>
-                            </v-card-text>
-                        </v-card>
-                    </v-timeline-item>
 
-                    <v-timeline-item color="primary">
-                        <template v-slot:opposite>
-                            <span>07/2017 - 07/2108</span>
-                        </template>
                         <v-card class="elevation-2">
-                            <v-card-title class="headline">
-                                GoQuo - &nbsp;
-                                <small> Front-end Developer</small>
-                            </v-card-title>
-                            <v-card-text>
-                                <ul>
-                                    <li>Significantly increase traffic after redesigning clients&apos; websites</li>
-                                    <li>
-                                        Increase booking by 20% by implemented Internet Booking Engine using Vue.JS
-                                    </li>
-                                    <li>
-                                        Increased conversation rate by 20% by implementing partial hotel stay on clients&apos; websites
-                                    </li>
-                                </ul>
-                            </v-card-text>
-                        </v-card>
-                    </v-timeline-item>
-                    <v-timeline-item color="primary">
-                        <template v-slot:opposite>
-                            <span>09/2015</span>
-                        </template>
-                        <v-card class="elevation-2">
-                            <v-card-title class="headline">JP Morgan Chase - &nbsp; <small> Project Lead</small></v-card-title>
-                            <v-card-text>
-                                <ul>
-                                    <li>Collaborated with business users in defining requirements, requirement changes, performance tuning, and patches</li>
-                                    <li>
-                                        Spearheaded a team effort to increase application&apos;s scalability, stability, and performance:
-                                        <ul>
-                                            <li>Upgraded servers&apos; hardware, software, and operating system</li>
-                                            <li>Reduced servers disk space usage by 80% by creating and implementing automated jobs to archive and clean up old files</li>
-                                            <li>Replaced custom files transfer methods with company&apos;s strategic files transfer tool, hence eliminated 90% production issues related to files transfer</li>
-                                            <li>Created and enhanced alert processes</li>
-                                            <li>Converted 100% existing pages to HTML5 and CSS 3 - Bootstrap</li>
-                                            <li>Improved performance by 50% by optimizing stored procedures</li>
-                                        </ul>
-                                    </li>
-                                    <li>Led a team of 5 members on collaborating with system admins, database admins, infrastructure group and production support team for production issues resolution</li>
-                                    <li>Directed and supervised project planning and peer review meetings</li>
-                                    <li>Interviewed potential candidates with technical questions</li>
-                                    <li>Trained new team members on infrastructure set up, application overview and troubleshooting</li>
-                                    <li>Trained production support teams across the globe on basic application and servers troubleshooting</li>
-                                    <li>Actively participated in recruiting events at local universities</li>
-                                </ul>
-                            </v-card-text>
-                        </v-card>
-                    </v-timeline-item>
-
-                    <v-timeline-item color="primary">
-                        <template v-slot:opposite>
-                            <span>06/2013</span>
-                        </template>
-                        <v-card class="elevation-2">
-                            <v-card-title class="headline">JP Morgan Chase - Technology Analyst/Summer Intern </v-card-title>
-                            <v-card-text>
-                                Converted to part-time analyst after finishing 10 weeks in an initial intern role with high met performance, then hired as a full-time analyst after graduating.
-                                <ul>
-                                    <li>
-                                        Improved and developed new features for a web reporting system using Java, JSP, JavaScript, jQuery, CSS, Microsoft SQL server:
-                                        <ul>
-                                            <li>Identified and replaced spaghetti code. Cut down 30% lines of code.</li>
-                                            <li>Increased UI responsive by replacing fix-sized tables</li>
-                                            <li>Created and updated SQL scripts to query database</li>
-                                        </ul>
-                                    </li>
-                                    <li>Prepared deployment plan, guided production deployment, and performed post-deployment verification task</li>
-                                    <li>Designed and developed an internal website to manage trades reject queue.</li>
-                                    <li>Designed and implemented an internal website featuring JPMC campuses&apos; information with interactive map, local news and point of interests for visitors, new employees and interns.</li>
-                                </ul>
-                            </v-card-text>
+                            <div class="timeline-title pa-3">
+                                <span class="timeline-company">{{item.company}}, &nbsp;</span>
+                                <span class="timeline-position">{{item.position}}</span>
+                                <div class="timeline-company-overview">
+                                    {{item.companyOverview}}
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-text px-3 pb-3">
+                                <p> {{item.responsibility}}</p>
+                                <div>
+                                    <v-chip v-for="skill in item.tech">{{skill}}</v-chip>
+                                </div>
+                            </div>
                         </v-card>
                     </v-timeline-item>
                 </v-timeline>
@@ -109,3 +31,50 @@
         </v-layout>
     </v-container>
 </template>
+
+<script>
+    export default {
+        data: () => {
+            return {
+                experiences: [
+                    {
+                        id: 1,
+                        company: 'Fujitsu Network Communication',
+                        position: 'Full Stack Developer II',
+                        duration: 'Sep 2018 - now',
+                        companyOverview: 'FNC is a manufacturer of network equipment and a patent-holder in optical networking technology. The company also delivers custom, end-to-end network integration and management solutions.',
+                        responsibility: 'Responsible for redesigning the Network Operation Center’s real-time dashboard',
+                        tech: ['Vue.js', 'NodeJS (Express)', 'REST API', 'webpack', 'docker', 'nginx', 'MySQL', 'Oracle']
+                    },
+                    {
+                        id: 2,
+                        company: 'GoQuo',
+                        position: 'Front-end Developer',
+                        duration: 'Jul 2017 - July 2018 ',
+                        companyOverview: 'GoQuo is one of the leaders in Asia market in Airline Ecommerce, Ancillary, Loyalty and Customer Analytical platforms.',
+                        responsibility: 'Responsible for redesigning and creating new clients’ holiday packages booking sites.',
+                        tech: ['Vue.js', 'Rest API', 'SASS', 'CSS3', 'webpack', 'AWS']
+                    },
+                    {
+                        id: 3,
+                        company: 'JPMorgan Chase',
+                        position: 'Project Lead',
+                        duration: 'Sep 2015 - Nov 2016',
+                        companyOverview: 'JPMC is an American multinational investment bank and financial services company. ',
+                        responsibility: 'Responsible for leading a team of 5 on maintaining, improving and developing new features for a web reporting system as well as interviewing and training new team members ',
+                        tech: ['Java, JSP', 'JavaScript', 'jQuery', 'Bootstrap', 'HTML5', 'CSS3', 'XML', 'Microsoft SQL server']
+                    },
+                    {
+                        id: 4,
+                        company: 'JPMorgan Chase',
+                        position: 'Technology Analyst/Summer Intern',
+                        duration: 'Jun 2013 - Nov 2016',
+                        companyOverview: '',
+                        responsibility: 'Responsile for designing and developing an internal website to manage trades reject queue.',
+                        tech: ['Java', 'JSF', 'DB2']
+                    },
+                ]
+            }
+        }
+    }
+</script>
