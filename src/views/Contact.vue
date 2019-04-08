@@ -79,7 +79,7 @@
 
 <script>
     import SocialLink from '@/components/SocialLink.vue'
-    import modal from '@/components/Modal.vue'
+    import Resume from '@/components/Resume'
     import APIService from '@/service/APIService'
 
     import VueRecaptcha from 'vue-recaptcha'
@@ -87,7 +87,7 @@
 
     export default {
         components: {
-            modal,
+            Resume,
             SocialLink,
             VueRecaptcha
         },
