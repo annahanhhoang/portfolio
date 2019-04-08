@@ -8,14 +8,22 @@
     }
     /* CSS talk bubble */
     .talk-bubble {
-        margin-left: 30%;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
         display: inline-block;
         position: relative;
-        width: 45%;
+        width: 85%;
         height: auto;
         background-color: $primary-color;
         color: #fff;
+
+        @media screen and (min-width: #{$md}) {
+            margin-left: 10%;
+        }
+
+        @media screen and (min-width: #{$lg}) {
+            margin-left: 30%;
+            width: 45%;
+        }
     }
 
     .round {
@@ -49,7 +57,6 @@
         border: 12px solid;
         border-color: $primary-color transparent transparent $primary-color;
     }
-
     /* talk bubble contents */
     .talktext {
         padding: 1em;

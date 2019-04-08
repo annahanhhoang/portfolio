@@ -1,30 +1,26 @@
 <template>
     <v-container fluid fill-height grid-list-xl>
-        <v-layout row class="skill-page">
-            <v-flex xs12>
-                <h1>What I know </h1>
-                <v-layout row>
-                    <v-flex xs5 class="edu-content">
-                        <h2>My education</h2>
+        <v-layout row wrap class="skill-page">
+            <v-flex xs12><h1>What I know </h1></v-flex>
+            <v-flex xs12 md5 class="edu-content text-xs-left text-md-right">
+                <h2>My education</h2>
 
-                        <div class="edu-item" v-for="item in edu">
-                            <div class="edu-school label">{{item.school}}</div>
-                            <div class="edu-item-content">
-                                <div class="edu-item-degree">{{item.degree}}</div>
-                                <div>{{item.time}}</div>
-                            </div>
-                        </div>
-                    </v-flex>
+                <div class="edu-item" v-for="item in edu" :key="item.school">
+                    <div class="edu-school label">{{item.school}}</div>
+                    <div class="edu-item-content">
+                        <div class="edu-item-degree">{{item.degree}}</div>
+                        <div>{{item.time}}</div>
+                    </div>
+                </div>
+            </v-flex>
 
-                    <v-flex xs5 offset-xs1>
-                        <h2>My skills</h2>
+            <v-flex xs12 md5 offset-md1>
+                <h2>My skills</h2>
 
-                        <div class="skills-item" v-for="item in skills">
-                            <div class="skills-title label">{{item.category}}</div>
-                            <v-chip v-for="skill in item.skillList">{{skill}}</v-chip>
-                        </div>
-                    </v-flex>
-                </v-layout>
+                <div class="skills-item" v-for="item in skills" :key="item.category">
+                    <div class="skills-title label">{{item.category}}</div>
+                    <v-chip v-for="skill in item.skillList">{{skill}}</v-chip>
+                </div>
             </v-flex>
         </v-layout>
     </v-container>

@@ -3,19 +3,18 @@
         <v-layout align-center justify-center>
             <v-flex xs12 sm8 md4>
                 <v-layout row wrap>
-                    <v-flex xs3></v-flex>
-                    <v-flex xs6 class="google-logo">
+                    <v-flex xs12 md6 offset-md3 class="google-logo">
                     </v-flex>
-                    <v-flex xs3></v-flex>
+                    <v-flex md3 class="hidden-sm-and-down"></v-flex>
 
                     <v-flex xs12 class="input-search">
                         <v-text-field id="txtSearch" ref="txtSearch" type="text" outline hide-details disabled/>
                         <div class="search-text anim-typewriter">Anna Hoang full stack developer</div>
                     </v-flex>
-                    <v-flex xs6 text-xs-right>
+                    <v-flex md6 class="hidden-sm-and-down">
                         <v-btn>Google Search</v-btn>
                     </v-flex>
-                    <v-flex xs6>
+                    <v-flex md6 class="hidden-sm-and-down">
                         <v-btn>I'm feeling lucky</v-btn>
                     </v-flex>
                 </v-layout>

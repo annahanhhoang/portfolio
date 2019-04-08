@@ -3,9 +3,9 @@
         <v-layout row>
             <v-flex xs12>
                 <h1>Where I have been </h1>
-                <v-timeline class="timeline">
+                <v-timeline :class="`timeline ${timelineClass}`" v-resize="onResize">
                     <v-timeline-item v-for="item in experiences" :key="item.id" class="timeline-item">
-                        <template v-slot:opposite>
+                        <template v-slot:opposite class="hidden-sm-and-down">
                             <span class="timeline-duration">{{item.duration}}</span>
                         </template>
 
@@ -36,6 +36,8 @@
     export default {
         data: () => {
             return {
+                timelineClass: '',
+
                 experiences: [
                     {
                         id: 1,
@@ -74,6 +76,16 @@
                         tech: ['Java', 'JSF', 'DB2']
                     },
                 ]
+            }
+        },
+        methods: {
+            onResize() {
+                if (window.innerWidth < 1024) {
+                    this.timelineClass = 'v-timeline--dense'
+                }
+                else {
+                    this.timelineClass = ''
+                }
             }
         }
     }

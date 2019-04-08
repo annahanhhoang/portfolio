@@ -1,7 +1,7 @@
 <template>
     <v-container fluid fill-height grid-list-xl class="contact-page">
-        <v-layout row>
-            <v-flex xs6 class="contact-content">
+        <v-layout row wrap>
+            <v-flex xs12 md6 class="contact-content">
                 <h1>Let&apos;s talk</h1>
 
                 <div>
@@ -47,7 +47,7 @@
                 </div>
             </v-flex>
 
-            <v-flex xs2 class="contact-content">
+            <v-flex xs12 md2 class="contact-content">
                 <h2>SOCIAL CONTACT</h2>
 
                 <social-link class="ma-3"></social-link>
@@ -72,7 +72,7 @@
                 </v-list>
             </v-flex>
 
-            <v-flex xs4></v-flex>
+            <v-flex md4></v-flex>
         </v-layout>
     </v-container>
 </template>

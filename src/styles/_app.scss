@@ -1,8 +1,12 @@
 /// <reference path="variables.scss" />
 html,
 body {
-    overflow: hidden;
+    @media screen and (min-width: #{$md}) {
+        overflow: hidden;
+    }
 }
+
+    
 
 h1, h2, h3 {
     font-weight: $header-weight;
@@ -10,7 +14,8 @@ h1, h2, h3 {
 }
 
 a {
-    .social-link & {
+    .social-link &,
+    .resume & {
         text-decoration: none;
     }
 }
