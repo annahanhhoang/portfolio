@@ -1,12 +1,7 @@
 /// <reference path="variables.scss" />
-html,
-body {
-    @media screen and (min-width: #{$md}) {
-        overflow: hidden;
-    }
+.no-scroll {
+    overflow: hidden;
 }
-
-    
 
 h1, h2, h3 {
     font-weight: $header-weight;

@@ -56,24 +56,40 @@
             return {
                 drawer: null,
                 menu: [
-                    { title: 'Home', icon: 'mdi-home', to: '/' },
-                    { title: 'About Me', icon: 'mdi-account', to: '/about' },
-                    { title: 'Experience', icon: 'mdi-briefcase', to: '/experience' },
-                    { title: 'Skills and Educations', icon: 'mdi-school', to: '/skills' },
-                    { title: 'My Projects', icon: 'mdi-lightbulb-on', to: '/projects' },
-                    { title: 'Blog', icon: 'mdi-blogger', to: '/blog' },
-                    { title: 'Contact', icon: 'mdi-phone', to: '/contact' },
+                    { title: 'Home', icon: 'mdi-home', to: '/home' },
+                    { title: 'About Me', icon: 'mdi-account', to: '/home#about-section' },
+                    { title: 'Experience', icon: 'mdi-briefcase', to: '/home#experience-section' },
+                    { title: 'Skills and Educations', icon: 'mdi-school', to: '/home#skill-section' },
+                    { title: 'My Projects', icon: 'mdi-lightbulb-on', to: '/home#projects-section' },
+                    { title: 'Blog', icon: 'mdi-blogger', to: '/home#blog-section' },
+                    { title: 'Contact', icon: 'mdi-phone', to: '/home#contact-section' },
                 ],
             }
         },
 
         beforeMount() {
-            this.drawer = this.$route.name !== 'Landing'
+            this.toggleScrollAndDrawer()
+        },
+
+        methods: {
+            toggleScrollAndDrawer() {
+                const isLandingPage = this.$route.name == 'Landing'
+
+                this.drawer = !isLandingPage
+
+                if (isLandingPage) {
+                    document.body.className = "no-scroll"
+                    document.documentElement.className = "no-scroll"
+                }
+                else {
+                    document.documentElement.classList.remove("no-scroll")
+                }
+            },
         },
 
         watch: {
             $route() {
-                this.drawer = this.$route.name !== 'Landing'
+                this.toggleScrollAndDrawer()
             }
         }
     }

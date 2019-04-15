@@ -4,6 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 import Landing from '@/views/Landing.vue'
+import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
 import Experience from '@/views/Experience.vue'
 import Skills from '@/views/Skills.vue'
@@ -22,31 +23,10 @@ const router = new Router({
         },
 
         {
-            path: '/about',
-            name: 'About',
-            component: About,
-            meta: { title: 'About Me' },
-        },
-
-        {
-            path: '/experience',
-            name: 'Experience',
-            component: Experience,
-            meta: { title: 'My Experience' },
-        },
-
-        {
-            path: '/skills',
-            name: 'Skills',
-            component: Skills,
-            meta: { title: 'My Experience' },
-        },
-
-        {
-            path: '/projects',
-            name: 'Projects',
-            component: Projects,
-            meta: { title: 'My Projects' },
+            path: '/home',
+            name: 'Home',
+            component: Home,
+            meta: { title: 'Welcome to Anna\'s page' },
         },
 
         {
@@ -61,14 +41,17 @@ const router = new Router({
             name: 'BlogPost',
             component: BlogPost
         },
+    ],
 
-        {
-            path: '/contact',
-            name: 'Contact',
-            component: Contact,
-            meta: { title: 'Contact Me' },
-        },
-    ]
+    scrollBehavior(to, from, savedPosition) {
+        if (to.hash) {
+            return { selector: to.hash }
+        } else if (savedPosition) {
+            return savedPosition;
+        } else {
+            return { x: 0, y: 0 }
+        }
+    }
 })
 
 router.afterEach((to) => {

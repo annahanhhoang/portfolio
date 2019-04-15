@@ -1,35 +1,33 @@
 <template>
-    <v-container fluid fill-height grid-list-xl class="experience-page">
-        <v-layout row>
-            <v-flex xs12>
-                <h1>Where I have been </h1>
-                <v-timeline :class="`timeline ${timelineClass}`" v-resize="onResize">
-                    <v-timeline-item v-for="item in experiences" :key="item.id" class="timeline-item">
-                        <template v-slot:opposite class="hidden-sm-and-down">
-                            <span class="timeline-duration">{{item.duration}}</span>
-                        </template>
+    <v-layout row class="experience-page">
+        <v-flex xs12>
+            <h1>Where I have been </h1>
+            <v-timeline :class="`timeline ${timelineClass}`" v-resize="onResize">
+                <v-timeline-item v-for="item in experiences" :key="item.id" class="timeline-item">
+                    <template v-slot:opposite class="hidden-sm-and-down">
+                        <span class="timeline-duration">{{item.duration}}</span>
+                    </template>
 
-                        <v-card class="elevation-2">
-                            <div class="timeline-title pa-3">
-                                <span class="timeline-company">{{item.company}}, &nbsp;</span>
-                                <span class="timeline-position">{{item.position}}</span>
-                                <div class="timeline-company-overview">
-                                    {{item.companyOverview}}
-                                </div>
+                    <v-card class="elevation-2">
+                        <div class="timeline-title pa-3">
+                            <span class="timeline-company">{{item.company}}, &nbsp;</span>
+                            <span class="timeline-position">{{item.position}}</span>
+                            <div class="timeline-company-overview">
+                                {{item.companyOverview}}
                             </div>
-                            
-                            <div class="timeline-text px-3 pb-3">
-                                <p> {{item.responsibility}}</p>
-                                <div>
-                                    <v-chip v-for="skill in item.tech">{{skill}}</v-chip>
-                                </div>
+                        </div>
+
+                        <div class="timeline-text px-3 pb-3">
+                            <p> {{item.responsibility}}</p>
+                            <div>
+                                <v-chip v-for="skill in item.tech">{{skill}}</v-chip>
                             </div>
-                        </v-card>
-                    </v-timeline-item>
-                </v-timeline>
-            </v-flex>
-        </v-layout>
-    </v-container>
+                        </div>
+                    </v-card>
+                </v-timeline-item>
+            </v-timeline>
+        </v-flex>
+    </v-layout>
 </template>
 
 <script>

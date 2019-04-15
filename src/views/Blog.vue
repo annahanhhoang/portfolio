@@ -1,39 +1,41 @@
 <template>
-    <v-container fluid grid-list-xl class="blog-page">
-        <v-data-iterator :items="posts"
-                         :rows-per-page-items="rowsPerPageItems"
-                         :pagination.sync="pagination"
-                         content-tag="v-layout"
-                         hide-actions
-                         row
-                         wrap
-                         fill-height>
-            <template v-slot:header>
-                <h1>My stories</h1>
-            </template>
+    <v-layout class="blog-page">
+        <v-flex xs12>
+            <v-data-iterator :items="posts"
+                             :rows-per-page-items="rowsPerPageItems"
+                             :pagination.sync="pagination"
+                             content-tag="v-layout"
+                             hide-actions
+                             row
+                             wrap
+                             fill-height>
+                <template v-slot:header>
+                    <h1>My stories</h1>
+                </template>
 
-            <template v-slot:item="props">
-                <v-flex xs12
-                        sm6
-                        md4
-                        lg3>
-                    <v-card>
-                        <img v-if="props.item.featured_image"
-                             :src="props.item.featured_image"
-                             alt="">
+                <template v-slot:item="props">
+                    <v-flex xs12
+                            sm6
+                            md4
+                            lg3>
+                        <v-card>
+                            <img v-if="props.item.featured_image"
+                                 :src="props.item.featured_image"
+                                 alt="">
 
-                        <v-card-title primary-title>
-                            <router-link :to="'/blog/' + props.item.slug"><h2>{{ props.item.title }}</h2></router-link>
-                        </v-card-title>
+                            <v-card-title primary-title>
+                                <router-link :to="'/blog/' + props.item.slug"><h2>{{ props.item.title }}</h2></router-link>
+                            </v-card-title>
 
-                        <v-card-text>
-                            <p>{{ props.item.summary }} <router-link :to="'/blog/' + props.item.slug">See more</router-link></p>
-                        </v-card-text>
-                    </v-card>
-                </v-flex>
-            </template>
-        </v-data-iterator>
-    </v-container>
+                            <v-card-text>
+                                <p>{{ props.item.summary }} <router-link :to="'/blog/' + props.item.slug">See more</router-link></p>
+                            </v-card-text>
+                        </v-card>
+                    </v-flex>
+                </template>
+            </v-data-iterator>
+        </v-flex>
+    </v-layout>
 </template>
 
 <script>

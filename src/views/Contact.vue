@@ -1,80 +1,78 @@
 <template>
-    <v-container fluid fill-height grid-list-xl class="contact-page">
-        <v-layout row wrap>
-            <v-flex xs12 md6 class="contact-content">
-                <h1>Let&apos;s talk</h1>
+    <v-layout row wrap class="contact-page">
+        <v-flex xs12 md6 class="contact-content">
+            <h1>Let&apos;s talk</h1>
 
-                <div>
-                    <h2>
-                        WHAT CAN I DO FOR YOU
-                    </h2>
+            <div>
+                <h2>
+                    WHAT CAN I DO FOR YOU
+                </h2>
 
-                    <p>Have a question about my profile? Want to connect regarding a job oppurtunity? Just want to chat? </p>
-                </div>
+                <p>Have a question about my profile? Want to connect regarding a job oppurtunity? Just want to chat? </p>
+            </div>
 
-                <div>
-                    <h2>
-                        SEND ME A MESSAGE
-                    </h2>
+            <div>
+                <h2>
+                    SEND ME A MESSAGE
+                </h2>
 
-                    <v-alert v-model="showAlert" :type="alertType" :dismissible="dismissible" class="mb-3">{{alertMessage}}</v-alert>
+                <v-alert v-model="showAlert" :type="alertType" :dismissible="dismissible" class="mb-3">{{alertMessage}}</v-alert>
 
-                    <v-form ref="form" v-model="valid" lazy-validation>
-                        <v-text-field label="Name*" name="txtName" id="txtName" v-model="name" :rules="nameRules" required>
-                        </v-text-field>
+                <v-form ref="form" v-model="valid" lazy-validation>
+                    <v-text-field label="Name*" name="txtName" id="txtName" v-model="name" :rules="nameRules" required>
+                    </v-text-field>
 
-                        <v-text-field label="Email*" name="txtEmail" id="txtEmail" v-model="email" :rules="emailRules" required>
-                        </v-text-field>
+                    <v-text-field label="Email*" name="txtEmail" id="txtEmail" v-model="email" :rules="emailRules" required>
+                    </v-text-field>
 
-                        <v-textarea label="Messaage*" name="txtMessage" id="txtMessage" v-model="message" :rules="messageRules" required></v-textarea>
+                    <v-textarea label="Messaage*" name="txtMessage" id="txtMessage" v-model="message" :rules="messageRules" required></v-textarea>
 
-                        <div :class="['v-input', 'v-input--selection-controls', 'v-input--checkbox', 'captcha', captchaErrorClass]">
-                            <div class="v-input__control">
-                                <div class="v-input__slot">
-                                    <vue-recaptcha ref="recaptcha" :sitekey="sitekey" @verify="verifyCaptcha" @expired="$refs.recaptcha.reset()">
-                                    </vue-recaptcha>
-                                </div>
-                                <div class="v-messages">
-                                    <div class="v-messages__wrapper">
-                                        <div class="v-messages__message">{{captchaErrorMessage}}</div>
-                                    </div>
+                    <div :class="['v-input', 'v-input--selection-controls', 'v-input--checkbox', 'captcha', captchaErrorClass]">
+                        <div class="v-input__control">
+                            <div class="v-input__slot">
+                                <vue-recaptcha ref="recaptcha" :sitekey="sitekey" @verify="verifyCaptcha" @expired="$refs.recaptcha.reset()">
+                                </vue-recaptcha>
+                            </div>
+                            <div class="v-messages">
+                                <div class="v-messages__wrapper">
+                                    <div class="v-messages__message">{{captchaErrorMessage}}</div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <v-btn color="primary" @click="sendEmail" class="ml-auto">Contact me</v-btn>
-                    </v-form>
-                </div>
-            </v-flex>
+                    <v-btn color="primary" @click="sendEmail" class="ml-auto">Contact me</v-btn>
+                </v-form>
+            </div>
+        </v-flex>
 
-            <v-flex xs12 md2 class="contact-content">
-                <h2>SOCIAL CONTACT</h2>
+        <v-flex xs12 md2 class="contact-content">
+            <h2>SOCIAL CONTACT</h2>
 
-                <social-link class="ma-3"></social-link>
+            <social-link class="ma-3"></social-link>
 
-                <v-list>
-                    <v-list-tile v-for="item in info"
-                                 :key="item.title"
-                                 class="mb-3">
-                        <v-list-tile-avatar>
-                            <v-icon large>{{ item.icon }}</v-icon>
-                        </v-list-tile-avatar>
+            <v-list>
+                <v-list-tile v-for="item in info"
+                             :key="item.title"
+                             class="mb-3">
+                    <v-list-tile-avatar>
+                        <v-icon large>{{ item.icon }}</v-icon>
+                    </v-list-tile-avatar>
 
-                        <v-list-tile-content>
-                            <v-list-tile-title>
-                                <div class="label">{{item.id}}</div>
-                            </v-list-tile-title>
-                            <v-list-tile-sub-title>
-                                <div>{{item.value}}</div>
-                            </v-list-tile-sub-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </v-list>
-            </v-flex>
+                    <v-list-tile-content>
+                        <v-list-tile-title>
+                            <div class="label">{{item.id}}</div>
+                        </v-list-tile-title>
+                        <v-list-tile-sub-title>
+                            <div>{{item.value}}</div>
+                        </v-list-tile-sub-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list>
+        </v-flex>
 
-            <v-flex md4></v-flex>
-        </v-layout>
-    </v-container>
+        <v-flex md4></v-flex>
+    </v-layout>
 </template>
 
 <script>

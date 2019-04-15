@@ -30,7 +30,7 @@
             const vm = this
 
             setTimeout(function () {
-                vm.$router.push({name: "About"})
+                vm.$router.push({name: "Home"})
             }, 6500)
         },
     }
