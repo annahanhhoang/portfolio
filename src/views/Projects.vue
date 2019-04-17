@@ -129,7 +129,7 @@
                                 path: 'logos/nginx.svg',
                             },
                         ],
-                        src: 'dashboard.png'
+                        src: 'Dashboard.png'
                     },
                     {
                         name: 'FNOC Maintenance Tracker',
@@ -164,7 +164,7 @@
                                 path: 'logos/iis.svg',
                             },
                         ],
-                        src: 'DashboardSR.jpg'
+                        src: 'Tracker.jpg'
                     }
                 ]
             }

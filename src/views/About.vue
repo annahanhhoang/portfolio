@@ -97,7 +97,7 @@
 </template>
 
 <script>
-    import Resume from '@/components/Resume'
+    import Resume from '@/components/ResumeDownload'
 
     export default {
         components: {

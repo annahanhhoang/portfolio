@@ -23,7 +23,7 @@
 
                         <v-list-tile-content>
                             <v-list-tile-title>
-                                <router-link :to="item.to">{{ item.title }}</router-link>
+                                <router-link :to="item.to" :target="item.target">{{ item.title }}</router-link>
                             </v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
@@ -57,12 +57,14 @@
                 drawer: null,
                 menu: [
                     { title: 'Home', icon: 'mdi-home', to: '/home' },
-                    { title: 'About Me', icon: 'mdi-account', to: '/home#about-section' },
-                    { title: 'Experience', icon: 'mdi-briefcase', to: '/home#experience-section' },
-                    { title: 'Skills and Educations', icon: 'mdi-school', to: '/home#skill-section' },
-                    { title: 'My Projects', icon: 'mdi-lightbulb-on', to: '/home#projects-section' },
-                    { title: 'Blog', icon: 'mdi-blogger', to: '/home#blog-section' },
-                    { title: 'Contact', icon: 'mdi-phone', to: '/home#contact-section' },
+                    { title: 'About Me', icon: 'mdi-account', to: '/home#about-section', target: "_self" },
+                    { title: 'Experience', icon: 'mdi-briefcase', to: '/home#experience-section', target: "_self" },
+                    { title: 'Skills and Educations', icon: 'mdi-school', to: '/home#skill-section', target: "_self" },
+                    { title: 'My Projects', icon: 'mdi-lightbulb-on', to: '/home#projects-section', target: "_self" },
+                    // { title: 'Resume', icon: 'mdi-file', to: '/home#resume-section', target: "_blank" },
+                    { title: 'Resume', icon: 'mdi-file', to: '/resume', target: "_blank" },
+                    { title: 'Blog', icon: 'mdi-blogger', to: '/home#blog-section', target: "_self" },
+                    { title: 'Contact', icon: 'mdi-phone', to: '/home#contact-section', target: "_self" },
                 ],
             }
         },
@@ -73,11 +75,11 @@
 
         methods: {
             toggleScrollAndDrawer() {
-                const isLandingPage = this.$route.name == 'Landing'
+                const showDrawer = this.$route.name == 'Landing' || this.$route.name == 'Resume'
 
-                this.drawer = !isLandingPage
+                this.drawer = !showDrawer
 
-                if (isLandingPage) {
+                if (showDrawer) {
                     document.body.className = "no-scroll"
                     document.documentElement.className = "no-scroll"
                 }

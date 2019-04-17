@@ -77,7 +77,6 @@
 
 <script>
     import SocialLink from '@/components/SocialLink.vue'
-    import Resume from '@/components/Resume'
     import APIService from '@/service/APIService'
 
     import VueRecaptcha from 'vue-recaptcha'
@@ -85,7 +84,6 @@
 
     export default {
         components: {
-            Resume,
             SocialLink,
             VueRecaptcha
         },

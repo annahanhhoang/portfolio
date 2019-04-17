@@ -4,6 +4,7 @@
         <section id="experience-section" class="page-section"><experience></experience></section>
         <section id="skill-section" class="page-section"><skill></skill></section>
         <section id="projects-section" class="page-section"><projects></projects></section>
+        <section id="resume-section" class="page-section"><resume></resume></section>
         <section id="blog-section" class="page-section"><blog></blog></section>
         <section id="contact-section" class="page-section"><contact></contact></section>
     </v-container>
@@ -14,6 +15,7 @@
     import experience from '@/views/Experience'
     import skill from '@/views/Skills'
     import projects from '@/views/Projects'
+    import resume from '@/views/Resume'
     import blog from '@/views/Blog'
     import contact from '@/views/Contact'
 
@@ -23,6 +25,7 @@
             experience,
             skill,
             projects,
+            resume,
             blog,
             contact
         },

@@ -5,13 +5,9 @@ Vue.use(Router)
 
 import Landing from '@/views/Landing.vue'
 import Home from '@/views/Home.vue'
-import About from '@/views/About.vue'
-import Experience from '@/views/Experience.vue'
-import Skills from '@/views/Skills.vue'
-import Projects from '@/views/Projects.vue'
+import Resume from '@/views/Resume.vue'
 import Blog from '@/views/Blog.vue'
 import BlogPost from '@/views/BlogPost.vue'
-import Contact from '@/views/Contact.vue'
 
 const router = new Router({
     routes: [
@@ -27,6 +23,13 @@ const router = new Router({
             name: 'Home',
             component: Home,
             meta: { title: 'Welcome to Anna\'s page' },
+        },
+
+        {
+            path: '/resume',
+            name: 'Resume',
+            component: Resume,
+            meta: { title: 'My resume' },
         },
 
         {
