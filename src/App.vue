@@ -55,6 +55,7 @@
         data() {
             return {
                 drawer: null,
+                currentPage: this.$route.name,
                 menu: [
                     { title: 'Home', icon: 'mdi-home', to: '/home' },
                     { title: 'About Me', icon: 'mdi-account', to: '/home#about-section', target: "_self" },
@@ -70,16 +71,19 @@
         },
 
         beforeMount() {
-            this.toggleScrollAndDrawer()
+            this.toggleScroll()
+            this.toggleDrawer()
         },
 
         methods: {
-            toggleScrollAndDrawer() {
-                const showDrawer = this.$route.name == 'Landing' || this.$route.name == 'Resume'
+            toggleDrawer() {
+                this.drawer = this.currentPage != 'Landing' && this.currentPage != 'Resume'
+            },
 
-                this.drawer = !showDrawer
+            toggleScroll() {
+                const scroll = this.currentPage != 'Landing'
 
-                if (showDrawer) {
+                if (!scroll) {
                     document.body.className = "no-scroll"
                     document.documentElement.className = "no-scroll"
                 }
@@ -91,7 +95,8 @@
 
         watch: {
             $route() {
-                this.toggleScrollAndDrawer()
+                this.toggleScroll()
+                this.toggleDrawer()
             }
         }
     }
