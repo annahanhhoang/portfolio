@@ -19,7 +19,7 @@
                             <v-flex xs2><v-icon>mdi-linkedin-box</v-icon></v-flex>
                             <v-flex xs10><a href="https://www.linkedin.com/in/hanh-hoang-67023654/">https://www.linkedin.com/in/hanh-hoang-67023654/</a></v-flex>
                             <v-flex xs2><v-icon>mdi-web</v-icon></v-flex>
-                            <v-flex xs10><a href="https://www.linkedin.com/in/hanh-hoang-67023654/">https://ahoang.com</a></v-flex>
+                            <v-flex xs10><a href="https://asianna.github.io">https://asianna.github.io</a></v-flex>
                         </v-layout>
                     </v-flex>
                 </v-layout>
