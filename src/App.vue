@@ -94,7 +94,8 @@
         },
 
         watch: {
-            $route() {
+            $route(to) {
+                this.currentPage = to.name
                 this.toggleScroll()
                 this.toggleDrawer()
             }
