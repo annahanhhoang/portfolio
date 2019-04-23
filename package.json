@@ -13,8 +13,8 @@
     "vue": "^2.6.9",
     "vue-axios": "^2.1.4",
     "vue-recaptcha": "^1.1.1",
-    "vue-router": "^3.0.5",
-    "vuetify": "^1.5.11"
+    "vue-router": "^3.0.6",
+    "vuetify": "^1.5.13"
   },
   "devDependencies": {
     "@mdi/font": "^3.6.95",
