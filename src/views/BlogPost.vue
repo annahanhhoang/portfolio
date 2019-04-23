@@ -42,7 +42,7 @@
         },
 
         watch: {
-            $route(to, from) {
+            $route() {
                 this.getPost()
             }
         },

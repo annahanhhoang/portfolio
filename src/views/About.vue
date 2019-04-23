@@ -51,10 +51,10 @@
         </v-flex>
         <v-flex xs12 md4>
             <v-layout row wrap full-height>
-                <v-flex xs4 sm2 md4  lg3 xl2 xl2 class="label">
+                <v-flex xs4 sm2 md4 lg3 xl2 class="label">
                     LOCATION:
                 </v-flex>
-                <v-flex xs8 sm10 md8  lg9 xl10 xl10>Dallas, Texas</v-flex>
+                <v-flex xs8 sm10 md8 lg9 xl10>Dallas, Texas</v-flex>
 
                 <v-flex xs4 sm2 md4  lg3 xl2 class="label">
                     EMAIL:

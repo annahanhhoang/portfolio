@@ -18,7 +18,7 @@
 
             <div class="skills-item" v-for="item in skills" :key="item.category">
                 <div class="skills-title label">{{item.category}}</div>
-                <v-chip v-for="skill in item.skillList">{{skill}}</v-chip>
+                <v-chip v-for="(skill, i) in item.skillList" :key="`skill${i}`">{{skill}}</v-chip>
             </div>
         </v-flex>
     </v-layout>

@@ -68,7 +68,7 @@
                         <div class="resume-timeline-position">{{item.position}}</div>
                         <p>{{item.responsibility}}</p>
                         <ul>
-                            <li v-for="(desc, idx) in item.desc">{{desc}}</li>
+                            <li v-for="(desc, idx) in item.desc" :key="`desc${idx}`">{{desc}}</li>
                         </ul>
                     </v-flex>
                 </v-layout>

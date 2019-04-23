@@ -20,7 +20,7 @@
                         <div class="timeline-text px-3 pb-3">
                             <p> {{item.responsibility}}</p>
                             <div>
-                                <v-chip v-for="skill in item.tech">{{skill}}</v-chip>
+                                <v-chip v-for="(skill, i) in item.tech" :key="`skill${i}`">{{skill}}</v-chip>
                             </div>
                         </div>
                     </v-card>
