@@ -5,12 +5,12 @@
                 BEGIN WHAT I HAVE DONE
             -->
             <h1>What I have done.</h1>
-            <v-carousel :cycle="cycle" hide-controls light height="800">
+            <v-carousel hide-controls light :cycle="carouselCycle" :height="carouselHeight" v-resize="onResize">
                 <v-carousel-item v-for="(item,i) in projects"
                                  :key="i">
                     <v-container>
-                        <v-layout row>
-                            <v-flex xs3>
+                        <v-layout row wrap>
+                            <v-flex xs12 md4 lg3>
                                 <h2>{{item.name}}</h2>
 
                                 <h3>PROJECT DETAIL</h3>
@@ -19,7 +19,7 @@
                                 <h3>TECHNOLOGIES USED</h3>
                                 <img v-for="(tech,i) in item.techList" :src="buildImageUrl(tech.path)" :alt="tech.name" :key="i" class="project-tech" />
                             </v-flex>
-                            <v-flex xs9>
+                            <v-flex md8 lg9 class="hidden-sm-and-down">
                                 <img :src="buildImageUrl(item.src)" class="project-screenshot" />
                             </v-flex>
                         </v-layout>
@@ -35,7 +35,8 @@
     export default {
         data: () => {
             return {
-                cycle: false,
+                carouselCycle: false,
+                carouselHeight: 500,
                 projects: [
                     {
                         name: 'Ryo fashion',
@@ -62,8 +63,7 @@
                                 path: 'logos/sql.svg'
                             }
                         ],
-                        //src: '../assets/avatar.svg'
-                        src: ''
+                        src: 'Ryo.jpg'
                     },
                     {
                         name: 'An internal reporting system',
@@ -169,7 +169,22 @@
                 ]
             }
         },
+        
         methods: {
+            //resize carouselCycle on different screen size
+            onResize() {
+                if (window.innerWidth >= 1440) {
+                    this.carouselHeight = 725
+                }
+                else if (window.innerWidth >= 1024 && window.innerWidth < 1440) {
+                    this.carouselHeight = 550
+                }
+                else {
+                    this.carouselHeight = 500
+                }
+            },
+
+            //build image path
             buildImageUrl(name) {
                 if (name) {
                     return require(`@/assets/${name}`);

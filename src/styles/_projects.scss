@@ -1,7 +1,11 @@
 .project-page {
     .project-tech {
-        width: 100px;
+        width: 75px;
         height: 35px;
+
+        @media screen and (min-width: #{$lg}) {
+            width: 100px;
+        }        
     }
     .project-screenshot {
         max-width: 100%;
