@@ -5,6 +5,7 @@
 
 h1, h2, h3 {
     font-weight: $header-weight;
+    line-height: 1.4;
     color: $header-color;
 }
 
@@ -16,15 +17,22 @@ a {
 }
 
 h1 {
-    font-size: $h1-size;
-    line-height: $h1-line-height;
-    margin-bottom: $h1-margin;
+    font-size: $h1-size-sm;
+    margin-bottom: $h1-margin-sm;
+
+    @media screen and (min-width: #{$md}){
+        font-size: $h1-size;
+        margin-bottom: $h1-margin;
+    }
 }
 
 h2 {
-    font-size: $h2-size;
-    line-height: $h2-line-height;
+    font-size: $h2-size-sm;
     margin-bottom: $h2-margin;
+
+    @media screen and (min-width: #{$md}){
+        font-size: $h2-size;
+    }
 }
 
 .label {
