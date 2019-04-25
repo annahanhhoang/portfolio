@@ -1,9 +1,12 @@
 <template>
     <v-layout row wrap class="skill-page">
         <v-flex xs12><h1>What I know </h1></v-flex>
+
+        <!--
+            BEGIN MY EDUCATION SECTION
+        -->
         <v-flex xs12 md5 class="edu-content text-xs-left text-md-right">
             <h2>My education</h2>
-
             <div class="edu-item" v-for="item in edu" :key="item.school">
                 <div class="edu-school label">{{item.school}}</div>
                 <div class="edu-item-content">
@@ -13,9 +16,11 @@
             </div>
         </v-flex>
 
+        <!--
+            BEGIN MY SKILLS SECTION
+        -->
         <v-flex xs12 md5 offset-md1>
             <h2>My skills</h2>
-
             <div class="skills-item" v-for="item in skills" :key="item.category">
                 <div class="skills-title label">{{item.category}}</div>
                 <v-chip v-for="(skill, i) in item.skillList" :key="`skill${i}`">{{skill}}</v-chip>

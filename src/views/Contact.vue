@@ -15,18 +15,16 @@
                 <h2>
                     SEND ME A MESSAGE
                 </h2>
-
                 <v-alert v-model="showAlert" :type="alertType" :dismissible="dismissible" class="mb-3">{{alertMessage}}</v-alert>
-
+                <!--
+                    BEGIN CONTACT FORM SECTION
+                -->
                 <v-form ref="form" v-model="valid" lazy-validation>
                     <v-text-field label="Name*" name="txtName" id="txtName" v-model="name" :rules="nameRules" required>
                     </v-text-field>
-
                     <v-text-field label="Email*" name="txtEmail" id="txtEmail" v-model="email" :rules="emailRules" required>
                     </v-text-field>
-
                     <v-textarea label="Messaage*" name="txtMessage" id="txtMessage" v-model="message" :rules="messageRules" required></v-textarea>
-
                     <div :class="['v-input', 'v-input--selection-controls', 'v-input--checkbox', 'captcha', captchaErrorClass]">
                         <div class="v-input__control">
                             <div class="v-input__slot">
@@ -40,17 +38,17 @@
                             </div>
                         </div>
                     </div>
-
                     <v-btn color="primary" @click="sendEmail" class="ml-auto">Contact me</v-btn>
                 </v-form>
             </div>
         </v-flex>
 
         <v-flex xs12 md2 class="contact-content">
+            <!--
+                BEGIN SOCIAL CONTACT SECTION
+            -->
             <h2>SOCIAL CONTACT</h2>
-
             <social-link class="ma-3"></social-link>
-
             <v-list>
                 <v-list-tile v-for="item in info"
                              :key="item.title"
@@ -58,7 +56,6 @@
                     <v-list-tile-avatar>
                         <v-icon large>{{ item.icon }}</v-icon>
                     </v-list-tile-avatar>
-
                     <v-list-tile-content>
                         <v-list-tile-title>
                             <div class="label">{{item.id}}</div>
@@ -100,6 +97,7 @@
                 email: '',
                 message: '',
 
+                //form validation rules
                 valid: true,
                 nameRules: [
                     v => !!v || 'Name is required',
@@ -115,11 +113,13 @@
                     v => !/[<>'"`&#\$~]/.test(v) || 'Message must not contain special character'
                 ],
 
+                // cpatcha
                 sitekey: captchaConfig.sitekey,
                 verifiedCaptcha: false,
                 captchaErrorMessage: "",
                 captchaErrorClass: "",
 
+                // alert component
                 showAlert: false,
                 alertType: 'info',
                 alertMessage: '',
@@ -128,12 +128,16 @@
         },
 
         methods: {
+            //validate form and captcha before submitting
             validate() {
                 this.resetAlert()
 
+                //if form is not valid
                 if (!this.$refs.form.validate()) {
                     return false
-                } else if (window.grecaptcha.getResponse().length === 0) {
+                }
+                //if user haven't checked on captcha component yet
+                else if (window.grecaptcha.getResponse().length === 0) {
                     this.captchaErrorMessage = 'Please verify that you are not a robot.'
                     this.captchaErrorClass = 'v-input--has-state error--text'
                     return false
@@ -141,11 +145,13 @@
                 return true
             },
 
+            // reset captcha error
             resetCaptchaError() {
                 this.captchaErrorMessage = ''
                 this.captchaErrorClass = ''
             },
 
+            //calling api to validate user's captcha iput
             verifyCaptcha(captchaResponse) {
                 const vm = this
 
@@ -166,6 +172,7 @@
                 }
             },
 
+            //send user's input in contact from to Anna's email 
             sendEmail() {
                 const vm = this
 
@@ -189,6 +196,7 @@
                 }
             },
 
+            // display error
             displayAlert(alertType, alertMessage, dismissible = false) {
                 this.alertMessage = alertMessage
                 this.dismissible = dismissible
@@ -196,6 +204,7 @@
                 this.showAlert = true
             },
 
+            // reset error alert
             resetAlert() {
                 this.alertMessage = ''
                 this.showAlert = false

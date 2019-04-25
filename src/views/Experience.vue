@@ -77,6 +77,7 @@
             }
         },
         methods: {
+            //disable opposite timeline display on mobile and tablet
             onResize() {
                 if (window.innerWidth < 1024) {
                     this.timelineClass = 'v-timeline--dense'

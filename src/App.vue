@@ -76,10 +76,12 @@
         },
 
         methods: {
+            //hide drawer for landing and resume page  
             toggleDrawer() {
                 this.drawer = this.currentPage != 'Landing' && this.currentPage != 'Resume'
             },
 
+            //disable scrolling for landing page 
             toggleScroll() {
                 const scroll = this.currentPage != 'Landing'
 
@@ -94,6 +96,7 @@
         },
 
         watch: {
+            //watch when user navigate to new page to hide/show drawer and disable/enable scroll
             $route(to) {
                 this.currentPage = to.name
                 this.toggleScroll()

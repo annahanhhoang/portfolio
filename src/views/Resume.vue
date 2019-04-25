@@ -1,8 +1,14 @@
 <template>
     <v-layout row class="resume-page">
         <v-flex xs12 class="resume-page-content">
+            <!--
+                BEGIN SUMMARY SECTION
+            -->
             <section>
                 <v-layout row wrap>
+                    <!--
+                        SUMMARY
+                    -->
                     <v-flex xs8>
                         <h1>Anna Hoang</h1>
                         <p>
@@ -10,6 +16,10 @@
                         </p>
                         <strong>Visa status: Eligible to work in the U.S. with no restrictions </strong>
                     </v-flex>
+
+                    <!--
+                        CONTACT INFO
+                    -->
                     <v-flex xs4 class="resume-contact">
                         <v-layout row wrap fill-height align-center>
                             <v-flex xs2><v-icon>mdi-email</v-icon></v-flex>
@@ -24,6 +34,7 @@
                     </v-flex>
                 </v-layout>
             </section>
+
             <!--
                 BEGIN SKILL SECTION
             -->
@@ -46,6 +57,7 @@
                     </v-flex>
                 </v-layout>
             </section>
+
             <!--
                 BEGIN EXPERIIENCE SECTION
             -->
@@ -73,6 +85,7 @@
                     </v-flex>
                 </v-layout>
             </section>
+
             <!--
                 BEGIN EDUCATION SECTION
             -->
