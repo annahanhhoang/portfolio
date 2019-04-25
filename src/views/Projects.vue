@@ -9,17 +9,44 @@
                 <v-carousel-item v-for="(item,i) in projects"
                                  :key="i">
                     <v-container>
-                        <v-layout row wrap>
-                            <v-flex xs12 md4 lg3>
-                                <h2>{{item.name}}</h2>
+                        <v-layout row wrap align-center justify-center>
+                            <v-flex xs12 md5 lg3>
+                                <p class="display-1">{{item.name}}</p>
 
-                                <h3>PROJECT DETAIL</h3>
+                                <div class="label">PROJECT DETAIL</div>
                                 <p> {{item.desc}} </p>
 
-                                <h3>TECHNOLOGIES USED</h3>
+                                <div class="label">PROJECT INFO</div>
+                                <v-layout row wrap align-center justify-center class="mb-2">
+                                    <v-flex xs6 sm2 md5 lg4>
+                                        <v-icon class="mr-1">mdi-calendar-range</v-icon>
+                                         <span>Date: </span>
+                                    </v-flex>
+                                    <v-flex xs6 sm10 md7 lg8>
+                                          {{item.date}}
+                                    </v-flex>
+
+                                    <v-flex xs6 sm2 md5 lg4>
+                                        <v-icon class="mr-1">mdi-account</v-icon>
+                                         <span>Category: </span>
+                                    </v-flex>
+                                    <v-flex xs6 sm10 md7 lg8>
+                                          {{item.category}}
+                                    </v-flex>
+
+                                    <v-flex xs6 sm2 md5 lg4>
+                                        <v-icon class="mr-1">mdi-tag</v-icon>
+                                         <span>Client: </span>
+                                    </v-flex>
+                                    <v-flex xs6 sm10 md7 lg8>
+                                          {{item.client}}
+                                    </v-flex>
+                                </v-layout>
+                                
+                                <div class="label mb-1">TECHNOLOGIES USED</div>
                                 <img v-for="(tech,i) in item.techList" :src="buildImageUrl(tech.path)" :alt="tech.name" :key="i" class="project-tech" />
                             </v-flex>
-                            <v-flex md8 lg9 class="hidden-sm-and-down">
+                            <v-flex md7 lg9 class="hidden-sm-and-down">
                                 <img :src="buildImageUrl(item.src)" class="project-screenshot" />
                             </v-flex>
                         </v-layout>
@@ -40,7 +67,10 @@
                 projects: [
                     {
                         name: 'Ryo fashion',
-                        desc: 'Designed and developed a website for a fashion store. The site displayed products grouped by categories, new and best-selling products, let users filter products based on different conditions, cooment on products and send order to the store.',
+                        date: 'Apr 2009',
+                        client: 'Ryo shop',
+                        category: 'New development',
+                        desc: 'Designed and developed a website for a fashion store. The site displayed products grouped by categories, New and best-selling products, let users filter products based on different conditions, cooment on products and send order to the store.',
                         techList: [
                             {
                                 name: 'HTML ',
@@ -67,6 +97,9 @@
                     },
                     {
                         name: 'An internal reporting system',
+                        date: 'Sep 2015 - Nov 2016',
+                        client: 'JP Morgan Chase',
+                        category: 'Maintainance, New development',
                         desc: 'The system received feed files from different upstream systems, consolidated data, generated reposrts based on different filter conditions and sent them out to users',
                         techList: [
                             {
@@ -98,6 +131,9 @@
                     },
                     {
                         name: 'FNOC Dashboard',
+                        date: 'Oct 2018 - Nov 2018',
+                        client: 'Fujitsu Network Communication',
+                        category: 'New development',
                         desc: 'The real-time dashboard contains charts to track alarms, tickets, events, connections and devices. The charts display different color base on severity, i.e red is critical, orange is major, yellow is minor, green is clear. ',
                         techList: [
                             {
@@ -133,7 +169,10 @@
                     },
                     {
                         name: 'FNOC Maintenance Tracker',
-                        desc: 'The maintenance tracker is displayed in calendar format. The calendar shows the color-coded ongoing and upcoming maintenance windows, i.e tan is past events, blue is ongoing, orange is events upcoming in less than 8 hours, green is upcoming events. Users can view the calendar in week or month format, as well as click on the events to view the event\'s detail information',
+                        date: 'Nov 2018 - Mar 2019',
+                        client: 'Fujitsu Network Communication',
+                        category: 'New development',
+                        desc: 'The maintenance tracker, displayed in calendar format, shows the color-coded maintenance windows. Users can view the calendar in week or month format, as well as click on the events to view the event\'s detail information',
                         techList: [
                             {
                                 name: 'Vue.js',
@@ -177,10 +216,13 @@
                     this.carouselHeight = 725
                 }
                 else if (window.innerWidth >= 1024 && window.innerWidth < 1440) {
-                    this.carouselHeight = 550
+                    this.carouselHeight = 625
+                }
+                else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+                    this.carouselHeight = 500
                 }
                 else {
-                    this.carouselHeight = 500
+                    this.carouselHeight = 650
                 }
             },
 
