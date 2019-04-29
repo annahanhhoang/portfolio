@@ -21,7 +21,7 @@
         },
         props: {
             xl: {
-                type: Boolean,
+                type: Boolean | String,
                 default: false
             }
         },
