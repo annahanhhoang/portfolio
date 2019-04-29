@@ -5,14 +5,13 @@
         **   SIDE MENU
         **
         -->
-        <v-navigation-drawer v-model="drawer"
-                             app>
+        <v-navigation-drawer app v-model="drawer" class="app-side-menu">
             <v-layout column align-center justify-center fill-height>
-                <img src="@/assets/logo.png" class="logo mt-4">
+                <img src="@/assets/logo.png" class="menu-logo mt-4">
 
-                <div class="display-1 mb-2">Anna Hoang</div>
+                <div class="menu-name">Anna Hoang</div>
 
-                <span class="title font-weight-light mb-5">Full-stack Developer</span>
+                <span class="menu-position">Full-stack Developer</span>
 
                 <v-list>
                     <v-list-tile v-for="item in menu"
@@ -28,7 +27,7 @@
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
-                <div class="mt-auto mb-5">
+                <div class="menu-social-link">
                     <social-link></social-link>
                 </div>
             </v-layout>

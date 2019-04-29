@@ -1,0 +1,36 @@
+.app-side-menu {
+    .menu-logo {
+        width: 90%;
+    }
+
+    .menu-name {
+        font-size: 34px;
+        line-height: 40px;
+        letter-spacing: normal;
+        margin-bottom: 8px;
+
+        @media screen and (min-width: #{$sm}) {
+            margin-bottom: 8px;
+        }
+    }
+
+    .menu-position {
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: 0.02em;
+
+        @media screen and (min-width: #{$sm}) {
+            margin-bottom: 48px;
+        }
+    }
+
+    .menu-social-link {
+        margin-top: auto;
+        margin-bottom: 16px;
+
+        @media screen and (min-width: #{$sm}) {
+            margin-bottom: 48px;
+        }
+    }
+}
