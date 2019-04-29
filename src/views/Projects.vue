@@ -99,7 +99,7 @@
                         name: 'An internal reporting system',
                         date: 'Sep 2015 - Nov 2016',
                         client: 'JP Morgan Chase',
-                        category: 'Maintainance, New development',
+                        category: 'Maintenance, New development',
                         desc: 'The system received feed files from different upstream systems, consolidated data, generated reposrts based on different filter conditions and sent them out to users',
                         techList: [
                             {
