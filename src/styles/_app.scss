@@ -6,7 +6,6 @@
 h1, h2, h3 {
     font-weight: $header-weight;
     line-height: 1.4;
-    color: $header-color;
 }
 
 a {
@@ -19,6 +18,7 @@ a {
 h1 {
     font-size: $h1-size-sm;
     margin-bottom: $h1-margin-sm;
+    color: $h1-color;
 
     @media screen and (min-width: #{$md}){
         font-size: $h1-size;
@@ -29,6 +29,7 @@ h1 {
 h2 {
     font-size: $h2-size-sm;
     margin-bottom: $h2-margin;
+    color: $h2-color;
 
     @media screen and (min-width: #{$md}){
         font-size: $h2-size;

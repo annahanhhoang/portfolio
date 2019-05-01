@@ -10,7 +10,10 @@ $xl: 1920px;
 *                         COLOR                                 *
 *****************************************************************/
 $primary-color: #1976d2;
-$header-color: $primary-color;
+$secondary-color: #223A52;
+$h1-color: $primary-color;
+$h2-color: $secondary-color;
+$label-color: $primary-color;
 
 /****************************************************************
 *                         FONT                                 *
@@ -25,16 +28,18 @@ $h1-size: 45px;
 $h1-size-sm: 27px;
 
 $h2-size: 34px;
-$h2-size-sm: 34px;
-$h2-margin: 15px;
+$h2-size-sm: 20px;
 
 /*label*/
-$label-color: $primary-color;
 $label-weight: 500;
 
 /****************************************************************
 *                         MARGIN                                *
 *****************************************************************/
-$section-margin: 25px;
-$h1-margin: 25px;
-$h1-margin-sm: 15px;
+$section-margin: 24px;
+$section-margin-sm: 16px;
+
+$h1-margin: 24px;
+$h1-margin-sm: 16px;
+
+$h2-margin: 16px;

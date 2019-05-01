@@ -1,5 +1,9 @@
 .home-page {
     .page-section {
-        margin-bottom: $section-margin;
+        margin-bottom: $section-margin-sm;
+
+        @media screen and (min-width: #{$md}) {
+            margin-bottom: $section-margin;
+        }
     }
 }
