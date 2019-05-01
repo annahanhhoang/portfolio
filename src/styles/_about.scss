@@ -1,8 +1,63 @@
 .about-page {
+    padding-top: 72px;
+
+    @media screen and (min-width: #{$md}) {
+        padding-top: 0;
+    }
+    /*
+    LEFT COLUMN
+    */
+    section:not(:last-child) {
+        margin-bottom: $section-margin-sm;
+
+        @media screen and (min-width: #{$md}) {
+            margin-bottom: $section-margin;
+        }
+    }
+
+    .reason {
+        display: flex;
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+    }
+
+    .service-item,
+    .reason-item {
+        text-align: center;
+
+        @media screen and (min-width: #{$sm}) {
+            padding: 0 !important;
+        }
+
+        .v-icon {
+            color: $secondary-color;
+            font-size: 75px;
+
+            @media screen and (min-width: #{$md}) {
+                font-size: 125px;
+            }
+        }
+
+        div:not(.reason-detail) {
+            padding: 0 5%;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .reason-detail {
+            @media screen and (min-width: #{$md}) {
+                padding: 0 15%;
+            }
+        }
+    }
+
     .resume {
         position: relative;
     }
 
+    /*
+    RIGHT COLUMN
+    */
     .side-image--img {
         background: url(../assets/avatar.png);
         background-size: cover;
@@ -17,7 +72,7 @@
         position: relative;
         width: 85%;
         height: auto;
-        background-color: $primary-color;
+        background-color: $secondary-color;
         color: #fff;
 
         @media screen and (min-width: #{$md}) {
@@ -35,6 +90,7 @@
         -webkit-border-radius: 30px;
         -moz-border-radius: 30px;
     }
+
     /*Right triangle, placed bottom left side slightly in*/
     .tri-right.border.btm-left-in:before {
         content: ' ';
@@ -59,18 +115,19 @@
         top: auto;
         bottom: -20px;
         border: 12px solid;
-        border-color: $primary-color transparent transparent $primary-color;
+        border-color: $secondary-color transparent transparent $secondary-color;
     }
+
     /* talk bubble contents */
     .talktext {
         padding: 1em;
         text-align: left;
         line-height: 1.5em;
-    }
 
-    .talktext p {
-        /* remove webkit p margins */
-        -webkit-margin-before: 0em;
-        -webkit-margin-after: 0em;
+        & p {
+            /* remove webkit p margins */
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+        }
     }
 }
