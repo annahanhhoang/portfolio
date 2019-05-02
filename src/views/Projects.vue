@@ -1,6 +1,6 @@
 <template>
     <v-layout row wrap class="project-page">
-        <v-flex xs12>
+        <v-flex xs12 class="py-0">
             <!--
                 BEGIN WHAT I HAVE DONE
             -->

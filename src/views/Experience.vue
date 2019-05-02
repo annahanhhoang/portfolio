@@ -1,6 +1,6 @@
 <template>
     <v-layout row class="experience-page">
-        <v-flex xs12>
+        <v-flex xs12 class="py-0">
             <h1>Where I have been </h1>
             <v-timeline :class="`timeline ${timelineClass}`" v-resize="onResize">
                 <v-timeline-item v-for="item in experiences" :key="item.id" class="timeline-item">

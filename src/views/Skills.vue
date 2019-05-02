@@ -5,7 +5,7 @@
         <!--
             BEGIN MY EDUCATION SECTION
         -->
-        <v-flex xs12 md5 class="edu-content text-xs-left text-md-right">
+        <v-flex xs12 md5 class="edu-content text-xs-left text-md-right py-0">
             <h2>My education</h2>
             <div class="edu-item" v-for="item in edu" :key="item.school">
                 <div class="edu-school label">{{item.school}}</div>
@@ -19,7 +19,7 @@
         <!--
             BEGIN MY SKILLS SECTION
         -->
-        <v-flex xs12 md5 offset-md1>
+        <v-flex xs12 md5 offset-md1 class="py-0">
             <h2>My skills</h2>
             <div class="skills-item" v-for="item in skills" :key="item.category">
                 <div class="skills-title label">{{item.category}}</div>

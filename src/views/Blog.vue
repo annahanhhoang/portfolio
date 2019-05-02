@@ -1,6 +1,7 @@
 <template>
     <v-layout class="blog-page">
-        <v-flex xs12>
+        <v-flex xs12 class="py-0">
+            <h1>My stories</h1>
             <v-data-iterator :items="posts"
                              :rows-per-page-items="rowsPerPageItems"
                              :pagination.sync="pagination"
@@ -9,9 +10,6 @@
                              row
                              wrap
                              fill-height>
-                <template v-slot:header>
-                    <h1>My stories</h1>
-                </template>
 
                 <template v-slot:item="props">
                     <v-flex xs12
