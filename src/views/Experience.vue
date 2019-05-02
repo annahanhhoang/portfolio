@@ -43,7 +43,7 @@
                         position: 'Full Stack Developer II',
                         duration: 'Sep 2018 - now',
                         companyOverview: 'FNC is a manufacturer of network equipment and a patent-holder in optical networking technology. The company also delivers custom, end-to-end network integration and management solutions.',
-                        responsibility: 'Responsible for redesigning the Network Operation Center’s real-time dashboard',
+                        responsibility: 'Responsible for redesigning the Network Operation Center\'s real-time dashboard',
                         tech: ['Vue.js', 'NodeJS (Express)', 'REST API', 'webpack', 'docker', 'nginx', 'MySQL', 'Oracle']
                     },
                     {
@@ -52,7 +52,7 @@
                         position: 'Front-end Developer',
                         duration: 'Jul 2017 - July 2018 ',
                         companyOverview: 'GoQuo is one of the leaders in Asia market in Airline Ecommerce, Ancillary, Loyalty and Customer Analytical platforms.',
-                        responsibility: 'Responsible for redesigning and creating new clients’ holiday packages booking sites.',
+                        responsibility: 'Responsible for redesigning and creating new clients\' holiday packages booking sites.',
                         tech: ['Vue.js', 'Rest API', 'SASS', 'CSS3', 'webpack', 'AWS']
                     },
                     {
