@@ -1,5 +1,5 @@
 .home-page {
-    .page-section {
+    .page-section:not(:last-child) {
         margin-bottom: $section-margin-sm;
 
         @media screen and (min-width: #{$md}) {
