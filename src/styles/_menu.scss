@@ -26,10 +26,8 @@
     }
 
     .menu-social-link {
-        margin-top: auto;
-        margin-bottom: 16px;
-
-        @media screen and (min-width: #{$sm}) {
+        @media screen and (min-width: #{$sm}) {            
+            margin-top: auto;
             margin-bottom: 24px;
         }
     }

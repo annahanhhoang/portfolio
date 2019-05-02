@@ -12,7 +12,7 @@
         **
         -->
         <v-navigation-drawer app v-model="drawer" class="app-side-menu">
-            <v-layout column align-center justify-center fill-height>
+            <v-layout column align-center fill-height>
                 <img src="@/assets/logo.png" class="menu-logo mt-4">
 
                 <div class="menu-name">Anna Hoang</div>
@@ -33,8 +33,8 @@
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
-                <div class="menu-social-link">
-                    <social-link></social-link>
+                <div class="menu-social-link hidden-md-and-down">
+                    <social-link xl></social-link>
                 </div>
             </v-layout>
         </v-navigation-drawer>
