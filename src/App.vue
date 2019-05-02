@@ -47,6 +47,14 @@
         <v-content>
             <router-view />
         </v-content>
+
+        <v-footer app height="auto" class="justify-center align-center">  
+            <v-card class="flex" flat tile >
+                <v-card-actions class="justify-center">
+                    &copy;{{currentYear}} — &nbsp; <strong>Anna Hoang</strong>
+                </v-card-actions>
+            </v-card>
+        </v-footer>
     </v-app>
 </template>
 
@@ -72,6 +80,7 @@
                     { title: 'Blog', icon: 'mdi-blogger', to: '/home#blog-section', target: "_self" },
                     { title: 'Contact', icon: 'mdi-phone', to: '/home#contact-section', target: "_self" },
                 ],
+                currentYear: new Date().getFullYear()
             }
         },
 
