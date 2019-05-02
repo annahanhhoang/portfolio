@@ -3,7 +3,7 @@
         <v-toolbar fixed class="hidden-md-and-up">
             <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-spacer></v-spacer>
-            <social-link xl="true"></social-link>
+            <social-link xl></social-link>
         </v-toolbar>
         
         <!--
