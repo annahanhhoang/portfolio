@@ -77,8 +77,6 @@
                     { title: 'My Projects', icon: 'mdi-lightbulb-on', to: '/home#projects-section', target: "_self" },
                     // { title: 'Resume', icon: 'mdi-file', to: '/home#resume-section', target: "_blank" },
                     { title: 'Resume', icon: 'mdi-file', to: '/resume', target: "_blank" },
-                    { title: 'Blog', icon: 'mdi-blogger', to: '/home#blog-section', target: "_self" },
-                    { title: 'Contact', icon: 'mdi-phone', to: '/home#contact-section', target: "_self" },
                 ],
                 currentYear: new Date().getFullYear()
             }

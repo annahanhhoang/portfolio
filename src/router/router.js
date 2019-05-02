@@ -6,8 +6,6 @@ Vue.use(Router)
 import Landing from '@/views/Landing.vue'
 import Home from '@/views/Home.vue'
 import Resume from '@/views/Resume.vue'
-import Blog from '@/views/Blog.vue'
-import BlogPost from '@/views/BlogPost.vue'
 
 const router = new Router({
     routes: [
@@ -30,19 +28,6 @@ const router = new Router({
             name: 'Resume',
             component: Resume,
             meta: { title: 'My resume' },
-        },
-
-        {
-            path: '/blog',
-            name: 'Blog',
-            component: Blog,
-            meta: { title: 'My writing' },
-        },
-        
-        {
-            path: '/blog/:slug',
-            name: 'BlogPost',
-            component: BlogPost
         },
     ],
 
