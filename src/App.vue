@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-toolbar height="auto" fixed class="hidden-lg-and-up">
+        <v-toolbar fixed class="hidden-lg-and-up">
             <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-spacer></v-spacer>
             <social-link xl></social-link>
