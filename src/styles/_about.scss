@@ -63,7 +63,20 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 50% 50%;
-        height: 615px;
+        height: 30vh;
+
+        @media screen and (min-width: #{$mdpi}) {
+            height: 45vh;
+        }
+
+        @media screen and (min-width: #{$lg}) {
+            height: 50vh;
+        }
+
+        @media screen and (min-width: #{$xl}) {
+            height: 70vh;
+        }
+
     }
     /* CSS talk bubble */
     .talk-bubble {
@@ -81,7 +94,11 @@
 
         @media screen and (min-width: #{$lg}) {
             margin-left: 30%;
-            width: 45%;
+            width: 50%;
+        }
+
+        @media screen and (min-width: #{$xl}) {
+            width: 55%;
         }
     }
 
@@ -121,7 +138,7 @@
     /* talk bubble contents */
     .talktext {
         padding: 1em;
-        text-align: left;
+        text-align: center;
         line-height: 1.5em;
 
         & p {
