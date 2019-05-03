@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-toolbar fixed class="hidden-lg-and-up">
+        <v-toolbar fixed class="hidden-lg-and-up no-print">
             <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-spacer></v-spacer>
             <social-link xl></social-link>
@@ -48,7 +48,7 @@
             <router-view />
         </v-content>
 
-        <v-footer app height="auto" class="justify-center align-center">  
+        <v-footer app height="auto" class="justify-center align-center no-print">  
             <v-card class="flex" flat tile >
                 <v-card-actions class="justify-center">
                     &copy;{{currentYear}} — &nbsp; <strong>Anna Hoang</strong>
