@@ -15,28 +15,28 @@ const router = new Router({
             path: '/',
             name: 'Landing',
             component: Landing,
-            meta: { title: 'Welcome to Anna\'s page'},
+            meta: { title: 'Anna Hoang - Full-stack Developer\'s page'},
         },
 
         {
             path: '/home',
             name: 'Home',
             component: Home,
-            meta: { title: 'Welcome to Anna\'s page' },
+            meta: { title: 'Anna Hoang - Full-stack Developer\'s page' },
         },
 
         {
             path: '/resume',
             name: 'Resume',
             component: Resume,
-            meta: { title: 'My resume' },
+            meta: { title: 'Anna Hoang - Full-stack Developer resume' },
         },
 
         {
             path: '/blog',
             name: 'Blog',
             component: Blog,
-            meta: { title: 'My writing' },
+            meta: { title: 'Anna Hoang - Full-stack Developer\'s stories' },
         },
         
         {
