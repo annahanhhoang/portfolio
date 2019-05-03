@@ -73,7 +73,8 @@
 
                 <v-layout row v-for="(item,i) in experiences" :key="`experience${i}`" class="mb-3">
                     <v-flex xs3 class="resume-left-col">
-                        <div class="resume-highlighted">{{item.company}}</div>
+                        <div class="resume-highlighted">{{item.company}}</div>                        
+                        <div>{{item.location}}</div>
                         <div>{{item.duration}}</div>
                     </v-flex>
                     <v-flex xs9>
@@ -144,15 +145,16 @@
             return {
                 skills: [
                     { category: 'Language', skillList: ['Java', '.NET', 'batch and shell programming', 'HTML 5', 'CSS 3', 'SASS', 'JavaScript', 'NodeJS(Express)'] },
-                    { category: 'Framework', skillList: ['Bootstrap', 'Vuetify', 'Materialize CSS', 'Vue.js', 'jQuery', 'Spring MVC'] },
-                    { category: 'Database', skillList: ['MySQL', 'Microsoft SQL Server', 'Oracle'] },
-                    { category: 'Source control', skillList: ['Git', 'SVN'] },
+                    { category: 'Framework', skillList: ['Vue.js', 'jQuery', 'Spring MVC', 'Bootstrap', 'Vuetify', 'Materialize CSS'] },
+                    { category: 'Database', skillList: ['Microsoft SQL Server', 'MySQL', 'Oracle', 'DB2'] },
+                    { category: 'Source control', skillList: ['GitHub', 'GitLab', 'GitLab CI', 'SVN'] },
                     { category: 'SDLC', skillList: ['Agile (Scrum, Kanban)', 'Waterfall', 'V - Model'] },
                     { category: 'OS', skillList: ['Red Hat', 'Ubuntu', 'Windows', 'Macintosh OS X (basic)'] },
                 ],
                 experiences: [
                     {
                         company: 'Fujitsu Network Communication',
+                        location: 'Richardson, Texas',
                         position: 'Full-stack Developer II',
                         duration: 'Sep 2018 - now',
                         companyOverview: 'FNC is a manufacturer of network equipment and a patent-holder in optical networking technology. The company also delivers custom, end-to-end network integration and management solutions.',
@@ -167,6 +169,7 @@
                     },
                     {
                         company: 'GoQuo',
+                        location: 'Kuala Lumpur, Malaysia',
                         position: 'Front-end Developer',
                         duration: 'Jul 2017 - Jul 2018 ',
                         companyOverview: 'GoQuo is one of the leaders in Asia market in Airline Ecommerce, Ancillary, Loyalty and Customer Analytical platforms.',
@@ -180,8 +183,9 @@
                     },
                     {
                         company: 'JPMorgan Chase',
+                        location: 'Dallas, Texas',
                         position: 'Project Lead',
-                        duration: 'Sep 2015 - Nov 2016',
+                        duration: 'Jun 2013 - Nov 2016',
                         companyOverview: 'JPMC is an American multinational investment bank and financial services company. ',
                         responsibility: 'Responsible for leading a team of 5 on maintaining, improving and developing new features for a web reporting system as well as interviewing and training new team members ',
                         tech: ['Java, JSP', 'JavaScript', 'jQuery', 'Bootstrap', 'HTML5', 'CSS3', 'XML', 'Microsoft SQL server'],
