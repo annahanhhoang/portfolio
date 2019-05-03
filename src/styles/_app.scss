@@ -42,3 +42,10 @@ h2 {
     font-weight: $label-weight;
     font-size: 16px;
 }
+
+//hide elements when print
+@media print {
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
