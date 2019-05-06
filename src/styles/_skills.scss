@@ -1,13 +1,26 @@
 .skill-page {
 
-    .edu-item,
     .skills-item {
-        margin-bottom: 15px;
+        margin-bottom: 24px;
+    }
+
+    .edu-item {
+        margin-bottom: 48px;        
+        border-left: 2px solid $primary-color
     }
 
     .edu-school {
+        padding-left: 10px; 
+        margin-bottom: 16px;
+    }
+
+    .edu-item-degree {
+        padding-left: 10px; 
+        font-size: 20px;
+        font-weight: 500;
         line-height: 1;
-        letter-spacing: .02em;
+        letter-spacing: 0.02em;
+        color: $primary-color;
     }
 
     ul.skill-list {
