@@ -1,16 +1,16 @@
 <template>
-    <v-layout row wrap class="skill-page">
+    <v-layout row wrap justify-space-around class="skill-page">
         <v-flex xs12><h1>What I know </h1></v-flex>
 
         <!--
             BEGIN MY EDUCATION SECTION
         -->
-        <v-flex xs12 md5 class="edu-content text-xs-left text-md-right py-0">
+        <v-flex xs12 md4 class="edu-content py-0">
             <h2>My education</h2>
             <div class="edu-item" v-for="item in edu" :key="item.school">
-                <div class="edu-school label">{{item.school}}</div>
-                <div class="edu-item-content">
-                    <div class="edu-item-degree">{{item.degree}}</div>
+                <div class="edu-school">{{item.school}}</div>
+                <div class="edu-item-content text-xs-right">
+                    <div class="edu-item-degree title">{{item.degree}}</div>
                     <div>{{item.time}}</div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
         <!--
             BEGIN MY SKILLS SECTION
         -->
-        <v-flex xs12 md5 offset-md1 class="py-0">
+        <v-flex xs12 md4 class="py-0">
             <h2>My skills</h2>
             <div class="skills-item" v-for="item in skills" :key="item.category">
                 <div class="skills-title label">{{item.category}}</div>
@@ -43,7 +43,7 @@
                     { category: 'language', skillList: ['Java', '.NET', 'batch and shell programming', 'HTML 5', 'CSS 3', 'SASS', 'JavaScript', 'NodeJS(Express)'] },
                     { category: 'Framework', skillList: ['Bootstrap', 'Vuetify', 'Materialize CSS', 'Vue.js', 'jQuery', 'Spring MVC'] },
                     { category: 'Database', skillList: ['MySQL', 'Microsoft SQL Server', 'Oracle'] },
-                    { category: 'Source control', skillList: ['Git', 'SVN'] },
+                    { category: 'Source control', skillList: ['GitHub', 'GitLab', 'GitLab CI', 'SVN'] },
                     { category: 'SOFTWARE DEVELOPMENT METHODOLOGY', skillList: ['Agile (Scrum, Kanban)', 'Waterfall', 'V - Model'] },
                     { category: 'OPERATING SYSTEMS', skillList: ['Red Hat', 'Ubuntu', 'Windows', 'Macintosh OS X (basic)'] },
                 ],
