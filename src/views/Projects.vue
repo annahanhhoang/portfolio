@@ -140,7 +140,7 @@ export default {
         client: 'Fujitsu Network Communication',
         category: 'New development',
         desc:
-          'The real-time dashboard contains charts to track alarms, tickets, events, connections and devices. The charts display different color base on severity, i.e red is critical, orange is major, yellow is minor, green is clear. ',
+          'The real-time dashboard contains charts to track alarms, tickets, events, connections and devices. The charts are color-coded base on severity, i.e red is critical, orange is major, yellow is minor, green is clear. ',
         techList: [
           {
             name: 'Vue.js',
