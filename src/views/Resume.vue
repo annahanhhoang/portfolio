@@ -38,8 +38,8 @@
               </v-col>
               <v-col cols="10">
                 <a
-                  href="https://www.linkedin.com/in/hanh-hoang-67023654/"
-                >https://www.linkedin.com/in/hanh-hoang-67023654/</a>
+                  href="https://www.linkedin.com/in/anna-hoang-67023654/"
+                >https://www.linkedin.com/in/anna-hoang-67023654/</a>
               </v-col>
               <v-col cols="2">
                 <v-icon>mdi-web</v-icon>
@@ -90,10 +90,21 @@
           </v-col>
           <v-col cols="9">
             <div class="resume-timeline-position">{{ item.position }}</div>
-            <p>{{ item.responsibility }}</p>
-            <ul>
-              <li v-for="(desc, idx) in item.desc" :key="`desc${idx}`">{{ desc }}</li>
-            </ul>
+            <ol v-if="item.projects.length > 1">
+              <li v-for="(proj, n) in item.projects" :key="`proj${n}`">
+                <div class="mb-1">Project: {{proj.name}}</div>
+                <div class="mb-1">{{proj.desc}}</div>
+                <ul>
+                  <li v-for="(desc, idx) in proj.achievement" :key="`ar${idx}`">{{ desc }}</li>
+                </ul>
+              </li>
+            </ol>
+            <div v-else>
+              <div class="mb-4">{{item.projects[0].desc}}</div>
+                <ul>
+                  <li v-for="(desc, idx) in item.projects[0].achievement" :key="`ar${idx}`">{{ desc }}</li>
+                </ul>
+            </div>
           </v-col>
         </v-row>
       </section>
@@ -196,15 +207,30 @@ export default {
         duration: 'Sep 2018 - now',
         companyOverview:
           'FNC is a manufacturer of network equipment and a patent-holder in optical networking technology. The company also delivers custom, end-to-end network integration and management solutions.',
-        responsibility:
-          "Responsible for redesigning the Network Operation Center's real-time dashboard",
-        desc: [
-          "Improved customers' satisfaction  with the new dashboard, hence incresed sales",
-          'Recognized by the senior manager for innovation encouragement ',
-          'Reduced production issue’s troubleshooting time by 90% by creating database auto backup process',
-          'Significantly increase usability by redesigning different trackers and monitors on the dashboard ',
+        projects: [
+          {
+            name: 'Dashboard',
+            desc: 'Redesigning the Network Operation Center\'s real-time dashboard to display tickets, alarms, and devices\' health in chart format. The charts are color-coded base on severity.',
+            achievement: [
+              "Improved customers' satisfaction  with the new dashboard, hence incresed sales",
+              'Recognized by the senior manager for innovation encouragement ',
+              'Reduced production issue’s troubleshooting time by 90% by creating database auto backup process',
+            ]
+          },
+          {
+            name: 'Maintenance Tracker',
+            desc: 'Designed and built the maintenance tracker, which displayed color-coded maintenance windows in calendar format. Users can view the calendar in week or month format, as well as click on the events to view the event\'s detail information',
+            achievement: [
+              'Significantly increase usability by redesigning different trackers and monitors on the dashboard ',
+            ]
+          },
+          {
+            name: 'Customer Portal',
+            desc: 'Designed and built a web portal so the customer can log in and see all tickets, alarms, devices\' health, submit service and maintenance request.',
+          }
         ],
         tech: [
+          'Google Map API',
           'Vue.js',
           'NodeJS (Express)',
           'REST API',
@@ -212,6 +238,7 @@ export default {
           'docker',
           'nginx',
           'MySQL',
+          'MS SQL Server',
           'Oracle',
         ],
       },
@@ -222,14 +249,16 @@ export default {
         duration: 'Jul 2017 - Jul 2018 ',
         companyOverview:
           'GoQuo is one of the leaders in Asia market in Airline Ecommerce, Ancillary, Loyalty and Customer Analytical platforms.',
-        responsibility:
-          "Responsible for redesigning and creating new clients's holiday packages booking sites.",
+        projects: [{
+          name: 'V3 redesign',
+          desc: "Redesigned and created new clients's holiday packages booking sites.",
+          achievement: [
+            'Significantly increase traffic after redesigning clients’ websites',
+            'Increase booking by 20% by implemented Internet Booking Engine using Vue.JS',
+            'Increased conversation rate by 20% by implementing partial hotel stay on clients’ websites',
+          ],
+        }],
         tech: ['Vue.js', 'Rest API', 'SASS', 'CSS3', 'webpack', 'AWS'],
-        desc: [
-          'Significantly increase traffic after redesigning clients’ websites',
-          'Increase booking by 20% by implemented Internet Booking Engine using Vue.JS',
-          'Increased conversation rate by 20% by implementing partial hotel stay on clients’ websites',
-        ],
       },
       {
         company: 'JPMorgan Chase',
@@ -238,8 +267,22 @@ export default {
         duration: 'Jun 2013 - Nov 2016',
         companyOverview:
           'JPMC is an American multinational investment bank and financial services company. ',
-        responsibility:
-          'Responsible for leading a team of 5 on maintaining, improving and developing new features for a web reporting system as well as interviewing and training new team members ',
+        projects: [
+          {
+            name: 'Balance Tracking System',
+            desc: "Leading a team of 5 on maintaining, improving and developing new features for a web reporting system as well as interviewing and training new team members.",
+            achievement: [
+              'Collaborated with system admins, database admins, infrastructure group and production support team to investigate and solve production issues',
+              'Reduced disk space usage on servers by 80% by creating automated jobs to archive and clean up old files',
+              'Eliminated 90% production issues related to files transfer by replacing file transfer software.',
+              'Created and enhanced alert processes, hence cut down troubleshooting time by 30%',
+              'Improved performance by 50% by optimizing stored procedures',
+              'Redesigned the UI using HTML5 and CSS 3 - Bootstrap',
+              'Directed and supervised code deployment, project planning and peer review meetings',
+              'Mentor summer interns',
+            ],
+          }
+        ],
         tech: [
           'Java, JSP',
           'JavaScript',
@@ -250,36 +293,14 @@ export default {
           'XML',
           'Microsoft SQL server',
         ],
-        desc: [
-          'Collaborated with business users in defining requirements, requirement changes, performance tuning, and patches',
-          'Collaborated with system admins, database admins, infrastructure group and production support team to investigate and solve production issues',
-          'Reduced disk space usage on servers by 80% by creating automated jobs to archive and clean up old files',
-          'Eliminated 90% production issues related to files transfer by replacing file transfer software.',
-          'Created and enhanced alert processes, hence cut down troubleshooting time by 30%',
-          'Improved performance by 50% by optimizing stored procedures',
-          'Identified and replaced spaghetti code. Cut down 30% lines of code.',
-          'Redesigned the UI using HTML5 and CSS 3 - Bootstrap',
-          'Directed and supervised code deployment, project planning and peer review meetings',
-          'Built a Confluence page detailing application FAQ, application and server troubleshooting',
-          'Designed and developed an internal website to manage trades reject queue. ',
-          'Designed and implemented an internal website featuring JPMC campuses’ information with interactive map, local news and point of interests for visitors, new employees and interns.',
-          'Mentor summer interns',
-          'Actively participated in local colleges recruiting events',
-        ],
       },
     ],
     additionalInfo: [
-      'Took a solo self - discovery trip cross - country, the Caribbean and to South East Asia from Nov 2016 to June 2017. Improved soft skills such as planning, budgeting, negotiation, adaptability.',
       'Won JPMorgan Chase Technology Analyst 2015 competition among 25 teams with a fully tested and production - ready task manager web app to help with JPMC’s go live events.',
       'Volunteered with JPMorgan Chase Technology for Social Good program to help NGOs with their websites.',
+      'Took a solo self - discovery trip cross - country, the Caribbean and to South East Asia from Nov 2016 to June 2017. Improved soft skills such as planning, budgeting, negotiation, adaptability.',
     ],
     edu: [
-      {
-        school: 'SYRACUSE UNIVERSITY',
-        degree: 'Master of Science in Cybersecurity',
-        time: '2017 - 2020',
-        achievement: [],
-      },
       {
         school: 'UNIVERSITY OF TEXAS AT DALLAS',
         degree: 'Bachelor of Science in Software Engineering',
