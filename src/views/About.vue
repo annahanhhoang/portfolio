@@ -23,7 +23,7 @@
             <br />
             <br />When I'm not sitting in front of the laptop, I specialize in hopping around. I've
             travelled to 15 countries and lived in 3. So far, Myanmar has been the most interesting
-            place I've ever been to.
+            place I've ever been.
           </v-col>
 
           <!--
