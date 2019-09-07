@@ -133,7 +133,7 @@ export default {
     },
 
     hideFooter() {
-      if (this.currentPage === 'Resume') {
+      if (this.currentPage === 'Resume' || this.currentPage === 'Landing') {
         this.showFooter = false;
       } else {
         this.showFooter = true;
