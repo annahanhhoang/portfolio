@@ -38,7 +38,7 @@ export default {
         id: 1,
         company: 'Fujitsu Network Communication',
         position: 'Full Stack Developer II',
-        duration: 'Sep 2018 - now',
+        duration: 'Sep 2018 - Sep 2019',
         companyOverview:
           'FNC is a manufacturer of network equipment and a patent-holder in optical networking technology. The company also delivers custom, end-to-end network integration and management solutions.',
         responsibility:
