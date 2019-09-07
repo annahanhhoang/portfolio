@@ -19,7 +19,7 @@
             web/software developer. I have worked in big corporates (J.P.Morgan, Fujitsu Network
             Communication, etc.) as well as small start-up environment. Professionally, I
             specialize in Vue.js (Veutify), Node.js (Express) and Java development. I can also do
-            databse/server management and basic graphic design.
+            database/server management and basic graphic design.
             <br />
             <br />When I'm not sitting in front of the laptop, I specialize in hopping around. I've
             travelled to 15 countries and lived in 3. So far, Myanmar has been the most interesting
