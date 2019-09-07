@@ -3,7 +3,7 @@
     <v-app-bar fixed class="hidden-lg-and-up no-print">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
-      <social-link xl></social-link>
+      <social-link :xl="true"></social-link>
     </v-app-bar>
 
     <!--
@@ -33,7 +33,7 @@
           </v-list-item>
         </v-list>
         <div class="menu-social-link hidden-md-and-down">
-          <social-link xl></social-link>
+          <social-link :xl="true"></social-link>
         </div>
       </v-row>
     </v-navigation-drawer>

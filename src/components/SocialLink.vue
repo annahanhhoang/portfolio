@@ -25,7 +25,7 @@ export default {
   },
   props: {
     xl: {
-      type: Boolean | String,
+      type: Boolean,
       default: false,
     },
   },

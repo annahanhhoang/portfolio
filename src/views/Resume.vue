@@ -101,9 +101,14 @@
             </ol>
             <div v-else>
               <div class="mb-4">{{item.projects[0].desc}}</div>
-                <ul>
-                  <li v-for="(desc, idx) in item.projects[0].achievement" :key="`ar${idx}`">{{ desc }}</li>
-                </ul>
+              <ul>
+                <li 
+                  v-for="(desc, idx) in item.projects[0].achievement" 
+                  :key="`ar${idx}`"
+                >
+                  {{ desc }}
+                </li>
+              </ul>
             </div>
           </v-col>
         </v-row>
@@ -210,24 +215,27 @@ export default {
         projects: [
           {
             name: 'Dashboard',
-            desc: 'Redesigning the Network Operation Center\'s real-time dashboard to display tickets, alarms, and devices\' health in chart format. The charts are color-coded base on severity.',
+            desc:
+              "Redesigning the Network Operation Center's real-time dashboard to display tickets, alarms, and devices' health in chart format. The charts are color-coded base on severity.",
             achievement: [
               "Improved customers' satisfaction  with the new dashboard, hence incresed sales",
               'Recognized by the senior manager for innovation encouragement ',
               'Reduced production issue’s troubleshooting time by 90% by creating database auto backup process',
-            ]
+            ],
           },
           {
             name: 'Maintenance Tracker',
-            desc: 'Designed and built the maintenance tracker, which displayed color-coded maintenance windows in calendar format. Users can view the calendar in week or month format, as well as click on the events to view the event\'s detail information',
+            desc:
+              "Designed and built the maintenance tracker, which displayed color-coded maintenance windows in calendar format. Users can view the calendar in week or month format, as well as click on the events to view the event's detail information",
             achievement: [
               'Significantly increase usability by redesigning different trackers and monitors on the dashboard ',
-            ]
+            ],
           },
           {
             name: 'Customer Portal',
-            desc: 'Designed and built a web portal so the customer can log in and see all tickets, alarms, devices\' health, submit service and maintenance request.',
-          }
+            desc:
+              "Designed and built a web portal so the customer can log in and see all tickets, alarms, devices' health, submit service and maintenance request.",
+          },
         ],
         tech: [
           'Google Map API',
@@ -249,15 +257,17 @@ export default {
         duration: 'Jul 2017 - Jul 2018 ',
         companyOverview:
           'GoQuo is one of the leaders in Asia market in Airline Ecommerce, Ancillary, Loyalty and Customer Analytical platforms.',
-        projects: [{
-          name: 'V3 redesign',
-          desc: "Redesigned and created new clients's holiday packages booking sites.",
-          achievement: [
-            'Significantly increase traffic after redesigning clients’ websites',
-            'Increase booking by 20% by implemented Internet Booking Engine using Vue.JS',
-            'Increased conversation rate by 20% by implementing partial hotel stay on clients’ websites',
-          ],
-        }],
+        projects: [
+          {
+            name: 'V3 redesign',
+            desc: "Redesigned and created new clients's holiday packages booking sites.",
+            achievement: [
+              'Significantly increase traffic after redesigning clients’ websites',
+              'Increase booking by 20% by implemented Internet Booking Engine using Vue.JS',
+              'Increased conversation rate by 20% by implementing partial hotel stay on clients’ websites',
+            ],
+          },
+        ],
         tech: ['Vue.js', 'Rest API', 'SASS', 'CSS3', 'webpack', 'AWS'],
       },
       {
@@ -270,7 +280,8 @@ export default {
         projects: [
           {
             name: 'Balance Tracking System',
-            desc: "Leading a team of 5 on maintaining, improving and developing new features for a web reporting system as well as interviewing and training new team members.",
+            desc:
+              'Leading a team of 5 on maintaining, improving and developing new features for a web reporting system as well as interviewing and training new team members.',
             achievement: [
               'Collaborated with system admins, database admins, infrastructure group and production support team to investigate and solve production issues',
               'Reduced disk space usage on servers by 80% by creating automated jobs to archive and clean up old files',
@@ -281,7 +292,7 @@ export default {
               'Directed and supervised code deployment, project planning and peer review meetings',
               'Mentor summer interns',
             ],
-          }
+          },
         ],
         tech: [
           'Java, JSP',
