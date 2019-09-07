@@ -21,7 +21,7 @@ export default {
         {
           id: 'PDF',
           icon: 'mdi-file-pdf-box',
-          link: 'https://drive.google.com/uc?export=download&id=13P2xBD7LZQw0EglMmfQMmZjTp90ls1Yt',
+          link: 'https://drive.google.com/uc?export=download&id=1MfmFY9TFBWuEBW5luIg9Dv8Z1LhJezmv',
         },
       ],
     };
