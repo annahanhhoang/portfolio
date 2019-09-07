@@ -3,70 +3,39 @@
     color: #222;
     pointer-events: none;
 
-    .container {
+    .container,
+    [class^='col'], div[class*=' col'] {
         padding: 0;
     }
 
     .google-logo {
+        margin-top: 37%;
         height: 92px;
         background-image: url('../assets/logos/google-logo.svg');
         background-repeat: no-repeat;
         background-position: 50% 50%;
         background-size: 272px 92px;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
-    .v-text-field {
-        &--box {
-            & > .v-input__control > .v-input__slot {
-                min-height: 44px;
-                margin-top: 0;
-            }
+    .v-text-field--outlined {
+        background: #fff !important;
+        border-radius: 24px;
+        box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+        border-color: rgba(223,225,229,0);
 
-            & input {
-                margin-top: 0;
-            }
+        & > .v-input__control > .v-input__slot {
+            min-height: 46px;
         }
 
-        &--outline {
-            & > .v-input__control > .v-input__slot {
-                background: #fff !important;
-                border-radius: 24px;
-                border: 1px solid #dfe1e5;
-                min-height: 44px;
-            }
-
-            &:not(.v-input--is-focused):not(.v-input--has-state) > .v-input__control > .v-input__slot:hover,
-            &.v-input--is-focused > .v-input__control > .v-input__slot {
-                box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
-                border-color: rgba(223,225,229,0);
-            }
-
-            & input {
-                padding-left: 8px;
-                margin-top: 0;
-            }
-
-            &.v-input--is-focused {
-                cursor: none;
-            }
+        & input {
+            padding-left: 8px;
+            margin-top: 0;
         }
-    }
 
-    .v-input input {
-        max-height: none;
-    }
-
-    .theme--light.v-btn {
-        color: #5F6368;
-
-        &:not(.v-btn--icon):not(.v-btn--flat) {
-            background-color: #f2f2f2;
+        &.v-input--is-focused {
+            cursor: none;
         }
-    }
-
-    .v-input__slot {
-        margin-bottom: 0
     }
 
     .v-btn {
@@ -86,13 +55,21 @@
         &:not(.v-btn--depressed):not(.v-btn--flat) {
             box-shadow: none;
         }
+
+        .theme--light & {
+            color: #5F6368;
+    
+            &:not(.v-btn--icon):not(.v-btn--flat) {
+                background-color: #f2f2f2;
+            }
+        }
     }
 
     //type writter aniumation
 
     .search-text {
         position: relative;
-        top: -33%;
+        top: -3%;
         left: 3%;
         border-right: 2px solid rgba(34,34,34,.75);
         font-size: 16px;
