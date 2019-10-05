@@ -37,11 +37,6 @@ export default {
     return {
       edu: [
         {
-          school: 'SYRACUSE UNIVERSITY',
-          degree: 'Master of Science in Cybersecurity',
-          time: '2017 - 2020 (Expected)',
-        },
-        {
           school: 'UNIVERSITY OF TEXAS AT DALLAS',
           degree: 'Bachelor of Science in Software Engineering',
           time: '2012 - 2014',
@@ -57,35 +52,35 @@ export default {
         {
           category: 'language',
           skillList: [
-            'Java',
-            '.NET',
-            'batch and shell programming',
+            'NodeJS(Express)',
             'HTML 5',
             'CSS 3',
             'SASS',
             'JavaScript',
-            'NodeJS(Express)',
+            'Java',
+            '.NET',
+            'batch and shell programming',
           ],
         },
         {
           category: 'Framework',
-          skillList: ['Bootstrap', 'Vuetify', 'Materialize CSS', 'Vue.js', 'jQuery', 'Spring MVC'],
+          skillList: ['Vue.js', 'Vuetify', 'Materialize CSS', 'Bootstrap', 'jQuery', 'Spring MVC'],
         },
         {
           category: 'Database',
-          skillList: ['MySQL', 'Microsoft SQL Server', 'Oracle'],
+          skillList: ['Microsoft SQL Server', 'MySQL', 'Oracle', 'DB2', 'MongoDB'],
         },
         {
           category: 'Source control',
-          skillList: ['GitHub', 'GitLab', 'GitLab CI', 'SVN'],
+          skillList: ['GitHub', 'GitLab', 'SVN'],
         },
         {
           category: 'SOFTWARE DEVELOPMENT METHODOLOGY',
-          skillList: ['Agile (Scrum, Kanban)', 'Waterfall', 'V - Model'],
+          skillList: ['Agile (Scrum, Kanban)', 'Waterfall'],
         },
         {
           category: 'OPERATING SYSTEMS',
-          skillList: ['Red Hat', 'Ubuntu', 'Windows', 'Macintosh OS X (basic)'],
+          skillList: ['Windows', 'Red Hat', 'Ubuntu', 'Unix', 'Macintosh OS X (basic)'],
         },
       ],
     };
